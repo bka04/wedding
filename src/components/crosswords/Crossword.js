@@ -374,11 +374,9 @@ const Crossword = (props) => {
       {/* <Card className='dark'>
         <CrosswordStatus />
       </Card> */}
-      <Card className='dark'>
-        <CrosswordPowerUps 
-          onClick={powerUpOnClickHandler}
-        />
-      </Card>
+      <CrosswordPowerUps 
+        onClick={powerUpOnClickHandler}
+      />
       {state.solved && !props.isThisLastPuzzle ? <div className='dark nextPuzzleDiv'><Button className="nextPuzzleBtn" onClick={nextPuzzleHandler}>
             Next Puzzle</Button></div> : null
       }

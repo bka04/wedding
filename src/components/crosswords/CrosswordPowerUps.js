@@ -1,5 +1,6 @@
 import "./CrosswordPowerUps.css";
 import Button from "../UI/Button";
+import Card from "../UI/Card"
 import { Fragment, useState } from "react";
 
 const icons = [
@@ -30,26 +31,28 @@ const CrosswordPowerUps = (props) => {
 
 const PowerUps = (props) => {
   return (
-    <div className="crosswordPowerUps">
-      {icons.map((icon) => (
-        <div
-          className="crosswordPowerUp"
-          key={icon.id}
-          id={icon.id}
-          onClick={props.onClick}
-        >
-          <p>{icon.text}</p>
-          <img
-            src={require("../../assets/icon-" + icon.imgId + ".png").default}
-            alt={icon.text}
-            width="50"
-            height="50"
-          />
+    <Card className='dark'>
+      <div className="crosswordPowerUps">
+        {icons.map((icon) => (
+          <div
+            className="crosswordPowerUp"
+            key={icon.id}
+            id={icon.id}
+            onClick={props.onClick}
+          >
+            <p>{icon.text}</p>
+            <img
+              src={require("../../assets/icon-" + icon.imgId + ".png").default}
+              alt={icon.text}
+              width="50"
+              height="50"
+            />
 
-          {/* <span className='tooltiptext'>{icon.text}</span> */}
-        </div>
-      ))}
-    </div>
+            {/* <span className='tooltiptext'>{icon.text}</span> */}
+          </div>
+        ))}
+      </div>
+    </Card>
   );
 };
 
