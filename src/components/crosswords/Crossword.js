@@ -309,7 +309,7 @@ const Crossword = (props) => {
   };
 
   const powerUpOnClickHandler = (event) => {
-    switch(event.target.id) {
+    switch(event.target.parentElement.id) {
       case "verifyWord":
         dispatch({type: "powerUp", powerUp: "verifyWord", event, answers: props.answers});
         break;
