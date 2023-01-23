@@ -1,0 +1,3 @@
+Pull out helper functions from Crossword.js
+Implement node.js -> change routing?
+Connect to database -> books data, puzzle data, user data

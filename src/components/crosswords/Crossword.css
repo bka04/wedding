@@ -1,0 +1,66 @@
+.crosswordContent {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.crosswordCluesCard {
+  flex: 0 1 500px;
+}
+
+.crosswordGridCard {
+  flex: 0 1;
+}
+
+@media (max-width: 1450px) {
+  .crosswordCluesCard {
+    flex: 0 1 400px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .crosswordContent {
+    gap: 0px;
+  }
+}
+
+@media (max-width: 800px) {
+  .crosswordGridCard.mediumGrid {
+    order: -1;
+  }
+}
+
+@media (max-width: 800px) {
+  .crosswordContent.mediumGrid {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 650px) {
+  .crosswordGridCard.smallGrid {
+    order: -1;
+  }
+}
+
+@media (max-width: 650px) {
+  .crosswordContent.smallGrid {
+    flex-wrap: wrap;
+  }
+}
+
+.nextPuzzleDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.crosswordFooter {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  gap: 20px;
+}
+
+.crosswordFooter .btn {
+  width: 230px;
+}

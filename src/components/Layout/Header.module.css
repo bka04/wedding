@@ -1,0 +1,47 @@
+.showNavLinks {
+  list-style: none;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.hideNavLinks {
+  display: none;
+}
+
+.nav li {
+  font-size: 1.25rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #88dfdf;
+}
+
+.nav a:hover,
+.nav a:active,
+.nav a.active {
+  color: #e6fcfc;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+.menuIcon {
+  display: none;
+  cursor: pointer;
+  color: #88dfdf;
+  margin: 18px 10px;
+}
+
+@media (max-width: 675px) {
+  .showNavLinks {
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 8px;
+  }
+  .menuIcon {
+    display: block;
+  }
+}

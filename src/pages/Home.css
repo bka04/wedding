@@ -1,0 +1,93 @@
+.homeImagesContainer {
+  display: grid;
+  grid-template-columns: repeat(1fr, 4);
+  grid-template-rows: 1fr;
+  grid-template-areas: "img1 img2 img3 img4";
+}
+
+@media (max-width: 900px) {
+  .homeImagesContainer {
+    grid-template-columns: repeat(1fr, 2);
+    grid-template-rows: repeat(1fr, 2);
+    grid-template-areas: 
+  "img1 img2"
+  "img3 img4";
+  }
+}
+
+@media (max-width: 400px) {
+  .homeImagesContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1fr, 4);
+    grid-template-areas: 
+  "img1"
+  "img2"
+  "img3"
+  "img4";
+  }
+}
+
+.homeImageSubContainer a:link, .homeImageSubContainer a:visited {
+  color: #88dfdf;
+  text-shadow: black 0px 0px 4px;
+  }
+
+.homeImageSubContainer {
+  position: relative;
+}
+
+.homeImageSubText {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -100%);
+  font-size: 2vw;
+}
+
+@media (max-width: 900px) {
+  .homeImageSubText {
+    font-size: 4vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .homeImageSubText {
+    font-size: 6vw;
+  }
+}
+
+.homeImageSubContainer {
+  cursor: pointer;
+}
+
+.homeImageSubContainer:hover {
+  z-index: 5;
+  transform: scale(1.05);
+}
+
+.homeImageSub {
+  border-radius: 20px;
+}
+
+.homeImageSub, .homeImageMain {
+  width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+.homeImageSubContainer1 {
+  grid-area: img1;
+}
+
+.homeImageSubContainer2 {
+  grid-area: img2;
+}
+
+.homeImageSubContainer3 {
+  grid-area: img3;
+}
+
+.homeImageSubContainer4 {
+  grid-area: img4;
+}
