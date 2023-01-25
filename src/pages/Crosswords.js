@@ -64,14 +64,14 @@ const Crosswords = (props) => {
         isThisFirstPuzzle={isThisFirstPuzzle}
         isThisLastPuzzle={isThisLastPuzzle}
       />
-      <Crossword
+      {(PUZZLES.find(puzzle => puzzle.id === currentPuzzle).type === "crossword") ? <Crossword
         initialCrosswordData={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).cellData}
         acrossClues={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).acrossClues}
         downClues={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).downClues}
         answers={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).answers}
         isThisLastPuzzle={isThisLastPuzzle}
         puzzleID={currentPuzzle}
-      />
+      /> : null}
     </Fragment>
   );
 };

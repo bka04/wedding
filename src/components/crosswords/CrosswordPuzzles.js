@@ -1,6 +1,7 @@
 const PUZZLES = [
   {
     id: "1",
+    type: "crossword",
     answerText: 'reactarguepairsisletdeeds',
     acrossClues: [
       { number: 1, text: "Respond.  Also a popular JavaScript framework" },
@@ -19,6 +20,7 @@ const PUZZLES = [
   },
   {
     id: "2",
+    type: "crossword",
     answerText: 'glad shawauge purebloc agessugarcoat   doe   sweettalkiran icondisc minestye edge',
     acrossClues: [
       { number: 1, text: "Happy" },
@@ -57,6 +59,7 @@ const PUZZLES = [
   },
   {
     id: "3",
+    type: "crossword",
     answerText: 'set   tagpain saleecru ironcheckmate   lip   queensideurdu odinages nerdden   ats',
     acrossClues: [
       { number: 1, text: "Tennis scoring unit" },
@@ -98,33 +101,38 @@ const PUZZLES = [
 
 
 for (let i = 0; i < PUZZLES.length; i++) {
-  //split out the answer string into an array of letters
-  PUZZLES[i].answers = PUZZLES[i].answerText.split('').map(letter => letter.replace(' ', ''));
 
-  //populate cell data based on the answers
-  PUZZLES[i].cellData = [];
-  for (let j = 0; j < PUZZLES[i].answers.length; j++) {
-    let focus = false;
-    if (j === 0) {
-      focus = true;
+  if (PUZZLES[i].type === "crossword") {
+    //split out the answer string into an array of letters
+    PUZZLES[i].answers = PUZZLES[i].answerText.split('').map(letter => letter.replace(' ', ''));
+
+    //populate cell data based on the answers
+    PUZZLES[i].cellData = [];
+    for (let j = 0; j < PUZZLES[i].answers.length; j++) {
+      let focus = false;
+      if (j === 0) {
+        focus = true;
+      }
+    
+      let locked = false;
+      let disabled = false;
+      let wrong = false;
+    
+      if (PUZZLES[i].answers[j] === '') {
+        disabled = true;
+      }
+    
+      PUZZLES[i].cellData.push({
+        id: j+1,
+        disabled,
+        focus,
+        value: "",
+        locked,
+        wrong
+      });
     }
-  
-    let locked = false;
-    let disabled = false;
-    let wrong = false;
-  
-    if (PUZZLES[i].answers[j] === '') {
-      disabled = true;
-    }
-  
-    PUZZLES[i].cellData.push({
-      id: j+1,
-      disabled,
-      focus,
-      value: "",
-      locked,
-      wrong
-    });
+  } else if (PUZZLES[i].type === "jumble") {
+    //jumble setup here
   }
 }
 
