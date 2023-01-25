@@ -1,3 +1,7 @@
 Pull out helper functions from Crossword.js
+
+Pass in data to crossword (get from local storage and pass via props)
+Create new function in crosswords.js for resetGrid and update crossword.js
+
 Implement node.js -> change routing?
 Connect to database -> books data, puzzle data, user data

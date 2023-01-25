@@ -32,7 +32,7 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: true
     };
-    localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    action.saveCrossword(crosswordData);
     return crosswordData;
   }
 
@@ -69,7 +69,7 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: newState.solved
     };
-    localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    action.saveCrossword(crosswordData);
     return crosswordData;
   } //end selectCellFromClue
 
@@ -143,7 +143,7 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: newState.solved
     };
-    localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    action.saveCrossword(crosswordData);
     return crosswordData;
   } //end powerUp
 
@@ -171,7 +171,7 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: newState.solved
     };
-    localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    action.saveCrossword(crosswordData);
     return crosswordData; //end click (mousedown) or space/enter keydown
   } else if (action.type === "keydown") {
     if (action.event.keyCode === 8 || action.event.keyCode === 46) {
@@ -195,7 +195,7 @@ const reducer = (state, action) => {
         cols: newState.cols,
         solved: newState.solved
       };
-      localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+      action.saveCrossword(crosswordData);
       return crosswordData;        
       
     } //end backspace/delete
@@ -213,7 +213,7 @@ const reducer = (state, action) => {
         cols: newState.cols,
         solved: newState.solved
       };
-      localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+      action.saveCrossword(crosswordData);
       return crosswordData;
     }
 
@@ -272,7 +272,7 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: newState.solved
     };
-    localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    action.saveCrossword(crosswordData);
 
     return crosswordData; //end keydown
   } else {
@@ -297,36 +297,36 @@ const Crossword = (props) => {
   }, [props.initialCrosswordData]);
 
   const onKeyDownHandler = (event) => {
-    dispatch({ type: "keydown", event, answers: props.answers });
+    dispatch({ type: "keydown", event, answers: props.answers, saveCrossword: props.onSaveCrossword });
   };
 
   const onMouseDownHandler = (event) => {
-    dispatch({ type: "mousedown", event });
+    dispatch({ type: "mousedown", event, saveCrossword: props.onSaveCrossword });
   };
 
   const clueOnClickHandler = (event) => {
-    dispatch({ type: "selectCellFromClue", event });
+    dispatch({ type: "selectCellFromClue", event, saveCrossword: props.onSaveCrossword });
   };
 
   const powerUpOnClickHandler = (event) => {
     switch(event.target.parentElement.id) {
       case "verifyWord":
-        dispatch({type: "powerUp", powerUp: "verifyWord", event, answers: props.answers});
+        dispatch({type: "powerUp", powerUp: "verifyWord", event, answers: props.answers, saveCrossword: props.onSaveCrossword});
         break;
       case "revealRandomLetter":
-        dispatch({type: "powerUp", powerUp: "revealRandomLetter", event, answers: props.answers});  
+        dispatch({type: "powerUp", powerUp: "revealRandomLetter", event, answers: props.answers, saveCrossword: props.onSaveCrossword});  
         break;
       case "revealLetter":
-        dispatch({type: "powerUp", powerUp: "revealLetter", event, answers: props.answers});
+        dispatch({type: "powerUp", powerUp: "revealLetter", event, answers: props.answers, saveCrossword: props.onSaveCrossword});
         break;
       // case "revealLetterEverywhere":
-      //   dispatch({type: "powerUp", powerUp: "revealLetterEverywhere", event, answers: props.answers});
+      //   dispatch({type: "powerUp", powerUp: "revealLetterEverywhere", event, answers: props.answers, saveCrossword: props.onSaveCrossword});
       //   break;
       case "verifyGrid":
-        dispatch({type: "powerUp", powerUp: "verifyGrid", event, answers: props.answers});
+        dispatch({type: "powerUp", powerUp: "verifyGrid", event, answers: props.answers, saveCrossword: props.onSaveCrossword});
         break;
       case "revealWord":
-        dispatch({type: "powerUp", powerUp: "revealWord", event, answers: props.answers});
+        dispatch({type: "powerUp", powerUp: "revealWord", event, answers: props.answers, saveCrossword: props.onSaveCrossword});
         break;
       default:
         break;  
