@@ -1,5 +1,15 @@
 const crosswordMethods = {
 
+  saveCrosswordData: (crosswordData, puzzleID) => {
+    localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+  },
+
+  loadCrosswordData: (puzzleID) => {
+    return JSON.parse(
+      localStorage.getItem("crosswordData") //get data saved to browswer
+    );
+  },
+
   //Populate the across and down question numbers for each cell
   //Also determine which cells need to display a question number
   populateNumbers: (data) => {

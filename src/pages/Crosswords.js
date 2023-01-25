@@ -51,6 +51,7 @@ const Crosswords = (props) => {
       onNextPuzzle={nextPuzzleHandler}
       onStartOver={startOverHandler}
       isThisLastPuzzle={isThisLastPuzzle}
+      puzzleID={currentPuzzle}
     />
   );
 };

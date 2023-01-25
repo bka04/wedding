@@ -32,7 +32,8 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: true
     };
-    localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    // localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID)
     return crosswordData;
   }
 
@@ -69,7 +70,8 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: newState.solved
     };
-    localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    //localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID)
     return crosswordData;
   } //end selectCellFromClue
 
@@ -143,7 +145,8 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: newState.solved
     };
-    localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    //localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID)
     return crosswordData;
   } //end powerUp
 
@@ -171,7 +174,8 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: newState.solved
     };
-    localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    //localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID)
     return crosswordData; //end click (mousedown) or space/enter keydown
   } else if (action.type === "keydown") {
     if (action.event.keyCode === 8 || action.event.keyCode === 46) {
@@ -195,7 +199,8 @@ const reducer = (state, action) => {
         cols: newState.cols,
         solved: newState.solved
       };
-      localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+      //localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+      crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID)
       return crosswordData;        
       
     } //end backspace/delete
@@ -213,7 +218,8 @@ const reducer = (state, action) => {
         cols: newState.cols,
         solved: newState.solved
       };
-      localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+      //localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+      crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID)
       return crosswordData;
     }
 
@@ -272,7 +278,8 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: newState.solved
     };
-    localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    //localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID)
 
     return crosswordData; //end keydown
   } else {
@@ -285,48 +292,46 @@ const Crossword = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    const storedCrosswordData = JSON.parse(
-      localStorage.getItem("crosswordData") //get data saved to browswer
-    );
+    const storedCrosswordData = crosswordMethods.loadCrosswordData(props.puzzleID);
 
     if (storedCrosswordData !== null) { //was there data saved to browser?
       dispatch({ type: "loadStateFromStorage", storedCrosswordData });
     } else {
-      dispatch({ type: "resetGrid", initialCrosswordData: props.initialCrosswordData });
+      dispatch({ type: "resetGrid", initialCrosswordData: props.initialCrosswordData, puzzleID: props.puzzleID });
     }
-  }, [props.initialCrosswordData]);
+  }, [props.initialCrosswordData, props.puzzleID]);
 
   const onKeyDownHandler = (event) => {
-    dispatch({ type: "keydown", event, answers: props.answers, saveCrossword: props.onSaveCrossword });
+    dispatch({ type: "keydown", event, answers: props.answers, puzzleID: props.puzzleID });
   };
 
   const onMouseDownHandler = (event) => {
-    dispatch({ type: "mousedown", event, saveCrossword: props.onSaveCrossword });
+    dispatch({ type: "mousedown", event, puzzleID: props.puzzleID });
   };
 
   const clueOnClickHandler = (event) => {
-    dispatch({ type: "selectCellFromClue", event, saveCrossword: props.onSaveCrossword });
+    dispatch({ type: "selectCellFromClue", event, puzzleID: props.puzzleID });
   };
 
   const powerUpOnClickHandler = (event) => {
     switch(event.target.parentElement.id) {
       case "verifyWord":
-        dispatch({type: "powerUp", powerUp: "verifyWord", event, answers: props.answers});
+        dispatch({type: "powerUp", powerUp: "verifyWord", event, answers: props.answers, puzzleID: props.puzzleID});
         break;
       case "revealRandomLetter":
-        dispatch({type: "powerUp", powerUp: "revealRandomLetter", event, answers: props.answers});  
+        dispatch({type: "powerUp", powerUp: "revealRandomLetter", event, answers: props.answers, puzzleID: props.puzzleID});  
         break;
       case "revealLetter":
-        dispatch({type: "powerUp", powerUp: "revealLetter", event, answers: props.answers});
+        dispatch({type: "powerUp", powerUp: "revealLetter", event, answers: props.answers, puzzleID: props.puzzleID});
         break;
       // case "revealLetterEverywhere":
       //   dispatch({type: "powerUp", powerUp: "revealLetterEverywhere", event, answers: props.answers});
       //   break;
       case "verifyGrid":
-        dispatch({type: "powerUp", powerUp: "verifyGrid", event, answers: props.answers});
+        dispatch({type: "powerUp", powerUp: "verifyGrid", event, answers: props.answers, puzzleID: props.puzzleID});
         break;
       case "revealWord":
-        dispatch({type: "powerUp", powerUp: "revealWord", event, answers: props.answers});
+        dispatch({type: "powerUp", powerUp: "revealWord", event, answers: props.answers, puzzleID: props.puzzleID});
         break;
       default:
         break;  
