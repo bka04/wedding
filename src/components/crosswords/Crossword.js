@@ -362,11 +362,11 @@ const Crossword = (props) => {
     }
   }
 
-  const nextPuzzleHandler = () => {
-    dispatch({ type: "setSolved" });
-    dispatch({ type: "resetGrid", initialCrosswordData: props.initialCrosswordData, puzzleID: props.puzzleID });
-    props.onNextPuzzle();
-  }
+  // const nextPuzzleHandler = () => {
+  //   dispatch({ type: "setSolved" });
+  //   dispatch({ type: "resetGrid", initialCrosswordData: props.initialCrosswordData, puzzleID: props.puzzleID });
+  //   props.onNextPuzzle();
+  // }
 
   return (
     <Fragment>
@@ -376,9 +376,9 @@ const Crossword = (props) => {
       <CrosswordPowerUps 
         onClick={powerUpOnClickHandler}
       />
-      {state.solved && !props.isThisLastPuzzle ? <div className='dark nextPuzzleDiv'><Button className="nextPuzzleBtn" onClick={nextPuzzleHandler}>
+      {/* {state.solved && !props.isThisLastPuzzle ? <div className='dark nextPuzzleDiv'><Button className="nextPuzzleBtn" onClick={nextPuzzleHandler}>
             Next Puzzle</Button></div> : null
-      }
+      } */}
       <div className={`crosswordContent ${state.cols > 5 ? 'mediumGrid' : 'smallGrid'}`}>
         <Card className='dark crosswordCluesCard'>
           <CrosswordClues 

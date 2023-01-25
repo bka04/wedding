@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import Crossword from "../components/crosswords/Crossword";
 import PUZZLES from "../components/crosswords/CrosswordPuzzles";
+import PuzzleHeader from "../components/Layout/PuzzleHeader";
 
 
 const defaultID = PUZZLES[0].id; 
@@ -43,16 +44,19 @@ const Crosswords = (props) => {
   }
 
   return (
-    <Crossword
-      initialCrosswordData={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).cellData}
-      acrossClues={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).acrossClues}
-      downClues={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).downClues}
-      answers={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).answers}
-      onNextPuzzle={nextPuzzleHandler}
-      onStartOver={startOverHandler}
-      isThisLastPuzzle={isThisLastPuzzle}
-      puzzleID={currentPuzzle}
-    />
+    <Fragment>
+      <PuzzleHeader></PuzzleHeader>
+      <Crossword
+        initialCrosswordData={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).cellData}
+        acrossClues={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).acrossClues}
+        downClues={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).downClues}
+        answers={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).answers}
+        // onNextPuzzle={nextPuzzleHandler}
+        onStartOver={startOverHandler}
+        isThisLastPuzzle={isThisLastPuzzle}
+        puzzleID={currentPuzzle}
+      />
+    </Fragment>
   );
 };
 

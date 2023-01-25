@@ -6,8 +6,8 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
-.nextPuzzleBtn, .resetBtn {
-  padding: 14px 16px;
+.nextPuzzleBtn, .prevPuzzleBtn, .resetBtn {
+  padding: 10px 14px;
   font-size: 16px;
   background-color: transparent;
   border: 2px solid;
@@ -27,12 +27,12 @@
   color: white;
 }
 
-.nextPuzzleBtn {
+.nextPuzzleBtn, .prevPuzzleBtn {
   border-color: #228b22;
   box-shadow: 0 0 40px 40px #228b22 inset, 0 0 0 0 #228b22;
   color: white;
 }
 
-.nextPuzzleBtn:hover {
+.nextPuzzleBtn:hover, .prevPuzzleBtn:hover {
   box-shadow: 0 0 10px 0 #228b22 inset, 0 0 10px 4px #228b22;
 }
