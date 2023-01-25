@@ -32,13 +32,13 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: true
     };
-    // localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
     crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID)
     return crosswordData;
   }
 
   if (action.type === "resetGrid") {
-    localStorage.removeItem("crosswordData");
+    //localStorage.removeItem("crosswordData");
+    crosswordMethods.removeCrosswordData(action.puzzleID);
     newState.cellData = crosswordMethods.clearCellValues(action.initialCrosswordData);
     newState.cellData = crosswordMethods.populateNumbers(newState.cellData);
     newState.across = true;
@@ -70,7 +70,6 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: newState.solved
     };
-    //localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
     crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID)
     return crosswordData;
   } //end selectCellFromClue
@@ -145,7 +144,6 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: newState.solved
     };
-    //localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
     crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID)
     return crosswordData;
   } //end powerUp
@@ -174,7 +172,6 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: newState.solved
     };
-    //localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
     crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID)
     return crosswordData; //end click (mousedown) or space/enter keydown
   } else if (action.type === "keydown") {
@@ -199,7 +196,6 @@ const reducer = (state, action) => {
         cols: newState.cols,
         solved: newState.solved
       };
-      //localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
       crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID)
       return crosswordData;        
       
@@ -218,7 +214,6 @@ const reducer = (state, action) => {
         cols: newState.cols,
         solved: newState.solved
       };
-      //localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
       crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID)
       return crosswordData;
     }
@@ -278,7 +273,6 @@ const reducer = (state, action) => {
       cols: newState.cols,
       solved: newState.solved
     };
-    //localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
     crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID)
 
     return crosswordData; //end keydown
@@ -294,7 +288,7 @@ const Crossword = (props) => {
   useEffect(() => {
     const storedCrosswordData = crosswordMethods.loadCrosswordData(props.puzzleID);
 
-    if (storedCrosswordData !== null) { //was there data saved to browser?
+    if (storedCrosswordData !== null) { //was there data saved to browser for this puzzle?
       dispatch({ type: "loadStateFromStorage", storedCrosswordData });
     } else {
       dispatch({ type: "resetGrid", initialCrosswordData: props.initialCrosswordData, puzzleID: props.puzzleID });
@@ -341,13 +335,13 @@ const Crossword = (props) => {
 
   const resetGrid = (event) => {
     if (window.confirm("Are you sure you want to reset the puzzle?")) {
-      dispatch({ type: "resetGrid", initialCrosswordData: props.initialCrosswordData });
+      dispatch({ type: "resetGrid", initialCrosswordData: props.initialCrosswordData, puzzleID: props.puzzleID });
     }
   };
 
   const startOver = () => {
     if (window.confirm("Are you sure you want to clear all progress and start over on the first puzzle?")) {
-      dispatch({ type: "resetGrid", initialCrosswordData: props.initialCrosswordData });
+      dispatch({ type: "resetGrid", initialCrosswordData: props.initialCrosswordData, puzzleID: props.puzzleID  });
       props.onStartOver();
     }
   }
@@ -370,7 +364,7 @@ const Crossword = (props) => {
 
   const nextPuzzleHandler = () => {
     dispatch({ type: "setSolved" });
-    dispatch({ type: "resetGrid", initialCrosswordData: props.initialCrosswordData });
+    dispatch({ type: "resetGrid", initialCrosswordData: props.initialCrosswordData, puzzleID: props.puzzleID });
     props.onNextPuzzle();
   }
 

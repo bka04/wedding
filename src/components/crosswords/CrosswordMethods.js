@@ -1,13 +1,60 @@
+// const exampleAllCrosswordsData = [
+//   {
+//     table: "1", -- will need to add
+//     id: "1",
+//     crosswordData: {}
+//   }, 
+//   {
+//     table: "1",
+//     id: "2",
+//     crosswordData: {}
+//   },
+//   {
+//     table: "1",
+//     id: "3",
+//     jumbleData: {}
+//   },
+//   {
+//     table: "2",
+//     id: "1",
+//     crosswordData: {}
+//   }
+// ]
+
 const crosswordMethods = {
 
   saveCrosswordData: (crosswordData, puzzleID) => {
-    localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
+    let allCrosswordsData = crosswordMethods.loadAllCrosswordsData();
+    let foundPuzzle = allCrosswordsData.find(puzzle => puzzle.id === puzzleID);
+    if (foundPuzzle) {
+      foundPuzzle.crosswordData = crosswordData;
+    } else {
+      allCrosswordsData.push({
+        id: puzzleID,
+        crosswordData: crosswordData
+      })
+    }
+    localStorage.setItem("allCrosswordsData", JSON.stringify(allCrosswordsData));
+  },
+
+  loadAllCrosswordsData: () => {
+    const allCrosswordsData = JSON.parse(localStorage.getItem("allCrosswordsData")); //get data saved to browswer
+    return allCrosswordsData ? allCrosswordsData : [];
   },
 
   loadCrosswordData: (puzzleID) => {
-    return JSON.parse(
-      localStorage.getItem("crosswordData") //get data saved to browswer
-    );
+    const allCrosswordsData = crosswordMethods.loadAllCrosswordsData();
+    const foundPuzzle = allCrosswordsData.find(puzzle => puzzle.id === puzzleID);
+    return foundPuzzle ? foundPuzzle.crosswordData : null;
+  },
+
+  removeCrosswordData: (puzzleID) => {
+    const allCrosswordsData = crosswordMethods.loadAllCrosswordsData();
+    let foundIndex = allCrosswordsData.findIndex(puzzle => puzzle.id === puzzleID);
+    if (foundIndex >= 0) {
+      allCrosswordsData.splice(foundIndex, 1);
+      localStorage.setItem("allCrosswordsData", JSON.stringify(allCrosswordsData));
+    }
   },
 
   //Populate the across and down question numbers for each cell
