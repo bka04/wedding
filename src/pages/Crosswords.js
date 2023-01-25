@@ -42,10 +42,6 @@ const Crosswords = (props) => {
     localStorage.setItem("currentPuzzle", defaultID);
   }
 
-  const saveCrosswordHandler = (crosswordData) => {
-    localStorage.setItem("crosswordData", JSON.stringify(crosswordData));
-  }
-
   return (
     <Crossword
       initialCrosswordData={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).cellData}
@@ -54,7 +50,6 @@ const Crosswords = (props) => {
       answers={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).answers}
       onNextPuzzle={nextPuzzleHandler}
       onStartOver={startOverHandler}
-      onSaveCrossword={saveCrosswordHandler}
       isThisLastPuzzle={isThisLastPuzzle}
     />
   );
