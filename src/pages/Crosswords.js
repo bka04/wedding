@@ -56,13 +56,6 @@ const Crosswords = (props) => {
     if (newPuzzleId !== "") {localStorage.setItem("currentPuzzle", newPuzzleId)};
   }
 
-  const startOverHandler = () => { //start over from the first puzzle
-    setCurrentPuzzle(defaultID);
-    setIsThisFirstPuzzle(true);
-    setIsThisLastPuzzle(false);
-    localStorage.setItem("currentPuzzle", defaultID);
-  }
-
   return (
     <Fragment>
       <PuzzleHeader 
@@ -76,8 +69,6 @@ const Crosswords = (props) => {
         acrossClues={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).acrossClues}
         downClues={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).downClues}
         answers={PUZZLES.find(puzzle => puzzle.id === currentPuzzle).answers}
-        // onNextPuzzle={nextPuzzleHandler}
-        onStartOver={startOverHandler}
         isThisLastPuzzle={isThisLastPuzzle}
         puzzleID={currentPuzzle}
       />

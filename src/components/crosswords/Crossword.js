@@ -339,13 +339,6 @@ const Crossword = (props) => {
     }
   };
 
-  const startOver = () => {
-    if (window.confirm("Are you sure you want to clear all progress and start over on the first puzzle?")) {
-      dispatch({ type: "resetGrid", initialCrosswordData: props.initialCrosswordData, puzzleID: props.puzzleID  });
-      props.onStartOver();
-    }
-  }
-
   const getSelectedQuestionNumber = (state, direction) => {
     const index = state.cellData.findIndex((cell) => cell.id === state.selectedCell);
     return (index > -1) ? state.cellData[index][`questionNumber${direction}`] : 1;
@@ -415,9 +408,6 @@ const Crossword = (props) => {
       <div className='crosswordFooter'>
         <Button className="resetBtn" onClick={resetGrid}>
           Reset Current Puzzle
-        </Button>
-        <Button className="resetBtn" onClick={startOver}>
-          Start Over From 1st Puzzle
         </Button>
         <div>
           <p>Game icons made by Freepik from www.flaticon.com</p>
