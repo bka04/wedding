@@ -4,12 +4,12 @@ const PuzzleHeader = (props) => {
 
   return (
     <div className='dark nextPuzzleDiv'>
-      <Button className="prevPuzzleBtn" onClick={props.prevPuzzleHandler}>
+      {props.isThisFirstPuzzle ? null : <Button className="prevPuzzleBtn" onClick={props.onPrevPuzzle}>
         Previous Puzzle
-      </Button>
-      <Button className="nextPuzzleBtn" onClick={props.nextPuzzleHandler}>
+      </Button>}
+      {props.isThisLastPuzzle ? null : <Button className="nextPuzzleBtn" onClick={props.onNextPuzzle}>
         Next Puzzle
-      </Button>
+      </Button>}
     </div>
   );
 };
