@@ -18,6 +18,7 @@ const savePuzzleData = (state) => {
 //NEED TO UPDATE THESE TO LOOK AT TABLE TOO
 
 const getPrevTable = (state) => {
+  state.currentPuzzle = '1'; //for now, just set it to the first puzzle of the previous table
   let currentTableInt = parseInt(state.currentTable);
   currentTableInt -= 1;
   const currentTableString = currentTableInt.toString();
@@ -33,6 +34,7 @@ const getPrevTable = (state) => {
 }
 
 const getNextTable = (state) => {
+  state.currentPuzzle = '1'; //for now, just set it to the first puzzle of the next table
   let currentTableInt = parseInt(state.currentTable);
   currentTableInt += 1;
   const currentTableString = currentTableInt.toString();
@@ -46,8 +48,8 @@ const getNextTable = (state) => {
 }
 
 const getPrevPuzzle = (state) => {
-  const puzzleIndex = PUZZLES.findIndex(puzzle => puzzle.id === state.currentPuzzle); //index of puzzle just on
-  state.currentPuzzle = PUZZLES[puzzleIndex - 1].id; //index of new puzzle
+  const puzzleIndex = PUZZLES.findIndex(puzzle => (puzzle.id === state.currentPuzzle) && (puzzle.table === state.currentTable)); //index of puzzle just on
+  state.currentPuzzle = PUZZLES[puzzleIndex - 1].id; //index of new puzzle --BKA FIX THIS! JUST DEC THE ID! AND SEE IF PUZZLE EXISTS FOR TABLE
   if (puzzleIndex - 1 === 0) { //is the new puzzle the first puzzle?
     state.isThisFirstPuzzle = true;
   }
@@ -56,8 +58,8 @@ const getPrevPuzzle = (state) => {
 }
 
 const getNextPuzzle = (state) => {
-  const puzzleIndex = PUZZLES.findIndex(puzzle => puzzle.id === state.currentPuzzle); //index of puzzle just on
-  state.currentPuzzle = PUZZLES[puzzleIndex + 1].id; //index of new puzzle
+  const puzzleIndex = PUZZLES.findIndex(puzzle => (puzzle.id === state.currentPuzzle) && (puzzle.table === state.currentTable)); //index of puzzle just on
+  state.currentPuzzle = PUZZLES[puzzleIndex + 1].id; //index of new puzzle --BKA FIX THIS! JUST INC THE ID! AND SEE IF PUZZLE EXISTS FOR TABLE
   if (puzzleIndex + 2 === PUZZLES.length) { //is the new puzzle the last puzzle?
     state.isThisLastPuzzle = true;
   }
