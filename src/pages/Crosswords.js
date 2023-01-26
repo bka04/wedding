@@ -15,55 +15,73 @@ const savePuzzleData = (state) => {
   localStorage.setItem("currentPuzzle", state.currentPuzzle)
 }
 
-//NEED TO UPDATE THESE TO LOOK AT TABLE TOO
+const getLastPuzzleOfTable = (table) => {
+  const puzzlesOfTable = PUZZLES.filter(puzzle => puzzle.table === table);
+  const maxPuzzleInt = Math.max(...puzzlesOfTable.map(puzzle => parseInt(puzzle.id))); 
+  return maxPuzzleInt.toString();
+}
+
+const setFirstAndLastPuzzle = (state) => {
+  state.isThisFirstPuzzle = (state.currentPuzzle === '1');
+  state.isThisLastPuzzle = (state.currentPuzzle === getLastPuzzleOfTable(state.currentTable));
+  return state;
+}
 
 const getPrevTable = (state) => {
   state.currentPuzzle = '1'; //for now, just set it to the first puzzle of the previous table
+
   let currentTableInt = parseInt(state.currentTable);
   currentTableInt -= 1;
   const currentTableString = currentTableInt.toString();
+
   if (PUZZLES.find(puzzle => puzzle.table === currentTableString)) { //can we find previous table?
     state.currentTable = currentTableString;
-    return state; //return state updated with previous table
   } else {  // if not (eg previous on table 1 does not exist), get the max table
     const maxTableInt = Math.max(...PUZZLES.map(puzzle => parseInt(puzzle.table))); 
     const maxTableString = maxTableInt.toString();
     state.currentTable = maxTableString;
-    return state;
   }
+
+  setFirstAndLastPuzzle(state);
+  return state;
 }
 
 const getNextTable = (state) => {
   state.currentPuzzle = '1'; //for now, just set it to the first puzzle of the next table
+  setFirstAndLastPuzzle(state);
+
   let currentTableInt = parseInt(state.currentTable);
   currentTableInt += 1;
   const currentTableString = currentTableInt.toString();
+
   if (PUZZLES.find(puzzle => puzzle.table === currentTableString)) {
     state.currentTable = currentTableString;
-    return state; //return state updated with next table
   } else {
     state.currentTable = '1';
-    return state; //return state with first table
   }
+
+  setFirstAndLastPuzzle(state);
+  return state;
 }
 
 const getPrevPuzzle = (state) => {
-  const puzzleIndex = PUZZLES.findIndex(puzzle => (puzzle.id === state.currentPuzzle) && (puzzle.table === state.currentTable)); //index of puzzle just on
-  state.currentPuzzle = PUZZLES[puzzleIndex - 1].id; //index of new puzzle --BKA FIX THIS! JUST DEC THE ID! AND SEE IF PUZZLE EXISTS FOR TABLE
-  if (puzzleIndex - 1 === 0) { //is the new puzzle the first puzzle?
-    state.isThisFirstPuzzle = true;
-  }
-  state.isThisLastPuzzle = false;
+  let currentPuzzleInt = parseInt(state.currentPuzzle);
+  currentPuzzleInt -= 1;
+  const currentPuzzleString = currentPuzzleInt.toString();
+  state.currentPuzzle = currentPuzzleInt > 0 ? currentPuzzleString : '1';
+
+  setFirstAndLastPuzzle(state);
   return state;
 }
 
 const getNextPuzzle = (state) => {
-  const puzzleIndex = PUZZLES.findIndex(puzzle => (puzzle.id === state.currentPuzzle) && (puzzle.table === state.currentTable)); //index of puzzle just on
-  state.currentPuzzle = PUZZLES[puzzleIndex + 1].id; //index of new puzzle --BKA FIX THIS! JUST INC THE ID! AND SEE IF PUZZLE EXISTS FOR TABLE
-  if (puzzleIndex + 2 === PUZZLES.length) { //is the new puzzle the last puzzle?
-    state.isThisLastPuzzle = true;
-  }
-  state.isThisFirstPuzzle = false;
+  let currentPuzzleInt = parseInt(state.currentPuzzle);
+  currentPuzzleInt += 1;
+  const currentPuzzleString = currentPuzzleInt.toString();
+  const lastPuzzleString = getLastPuzzleOfTable(state.currentTable);
+  state.currentPuzzle = currentPuzzleInt <= parseInt(lastPuzzleString) ? currentPuzzleString : lastPuzzleString;
+
+  setFirstAndLastPuzzle(state);
   return state;
 }
 
@@ -80,7 +98,7 @@ const reducer = (state, action) => {
     
     newState.currentTable = localCurrentTable;
     newState.currentPuzzle = localCurrentPuzzle;
-    //NEED TO UDPATE IS THIS FIRST/LAST PUZZLE! - pull out code from other methods into a new one
+    setFirstAndLastPuzzle(newState);
 
     savePuzzleData(newState);
     return newState;
