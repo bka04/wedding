@@ -171,6 +171,7 @@ const Crosswords = (props) => {
       <PuzzlesByTable 
         puzzlesByTable={PUZZLES.filter(puzzle => puzzle.table === state.currentTable)}
         currentPuzzle={state.currentPuzzle}
+        currentTable={state.currentTable}
       />
     </Fragment>
   );

@@ -2,8 +2,7 @@ import { Fragment } from "react";
 import Crossword from "../crosswords/Crossword.js"
 
 const PuzzlesByTable = (props) => {
-  const puzzlesByTable = props.puzzlesByTable;
-  const currentPuzzle = props.currentPuzzle;
+  const {puzzlesByTable, currentPuzzle, currentTable} = props;
 
   return (
     <Fragment>
@@ -15,6 +14,7 @@ const PuzzlesByTable = (props) => {
         answers={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).answers}
         // isThisLastPuzzle={isThisLastPuzzle}
         puzzleID={currentPuzzle}
+        tableID={currentTable}
       /> : null}
     </Fragment>
   );

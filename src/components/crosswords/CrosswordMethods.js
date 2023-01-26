@@ -23,14 +23,15 @@
 
 const crosswordMethods = {
 
-  saveCrosswordData: (crosswordData, puzzleID) => {
+  saveCrosswordData: (crosswordData, puzzleID, tableID) => {
     let allCrosswordsData = crosswordMethods.loadAllCrosswordsData();
-    let foundPuzzle = allCrosswordsData.find(puzzle => puzzle.id === puzzleID);
+    let foundPuzzle = allCrosswordsData.find(puzzle => (puzzle.id === puzzleID) && (puzzle.table === tableID));
     if (foundPuzzle) {
       foundPuzzle.crosswordData = crosswordData;
     } else {
       allCrosswordsData.push({
         id: puzzleID,
+        table: tableID,
         crosswordData: crosswordData
       })
     }
@@ -42,15 +43,15 @@ const crosswordMethods = {
     return allCrosswordsData ? allCrosswordsData : [];
   },
 
-  loadCrosswordData: (puzzleID) => {
+  loadCrosswordData: (puzzleID, tableID) => {
     const allCrosswordsData = crosswordMethods.loadAllCrosswordsData();
-    const foundPuzzle = allCrosswordsData.find(puzzle => puzzle.id === puzzleID);
+    const foundPuzzle = allCrosswordsData.find(puzzle => (puzzle.id === puzzleID) && (puzzle.table === tableID));
     return foundPuzzle ? foundPuzzle.crosswordData : null;
   },
 
-  removeCrosswordData: (puzzleID) => {
+  removeCrosswordData: (puzzleID, tableID) => {
     const allCrosswordsData = crosswordMethods.loadAllCrosswordsData();
-    let foundIndex = allCrosswordsData.findIndex(puzzle => puzzle.id === puzzleID);
+    let foundIndex = allCrosswordsData.findIndex(puzzle => (puzzle.id === puzzleID) && (puzzle.table === tableID));
     if (foundIndex >= 0) {
       allCrosswordsData.splice(foundIndex, 1);
       localStorage.setItem("allCrosswordsData", JSON.stringify(allCrosswordsData));
