@@ -9,7 +9,7 @@ const PuzzlesByTable = (props) => {
   const [isThisFirstPuzzle, setIsThisFirstPuzzle] = useState(true);
 
   useEffect(() => {
-    const localCurrentPuzzle = localStorage.getItem("currentPuzzle") //get data saved to browswer
+    let localCurrentPuzzle = localStorage.getItem("currentPuzzle") //get data saved to browswer
 
     if (localCurrentPuzzle !== null) { //was there data saved to browser?
       setCurrentPuzzle(localCurrentPuzzle); //use it
