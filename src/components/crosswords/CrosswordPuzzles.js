@@ -98,6 +98,45 @@ const PUZZLES = [
       { number: 19, text: "Earth" },
       { number: 20, text: "Burnt at a barbeque" }
     ]
+  },
+  {
+    table: "2",
+    id: "2",
+    type: "crossword",
+    answerText: 'reactarguepairsisletdeeds',
+    acrossClues: [
+      { number: 1, text: "TESTING! Puzzle 2 of table 2" },
+      { number: 6, text: "Debate" },
+      { number: 7, text: "These are worth two points in cribbage" },
+      { number: 8, text: "Florida Keys, e.g." },
+      { number: 9, text: "Home ownership documents" }
+    ],
+    downClues: [
+      { number: 1, text: "With 5 down, same day COVID exams" },
+      { number: 2, text: "Remove" },
+      { number: 3, text: "Popular software development approach" },
+      { number: 4, text: "Healed" },
+      { number: 5, text: "See 1 down" }
+    ]
+  },  {
+    table: "2",
+    id: "3",
+    type: "crossword",
+    answerText: 'reactarguepairsisletdeeds',
+    acrossClues: [
+      { number: 1, text: "ANOTHER TEST. Table 2 puzzle 3" },
+      { number: 6, text: "Debate" },
+      { number: 7, text: "These are worth two points in cribbage" },
+      { number: 8, text: "Florida Keys, e.g." },
+      { number: 9, text: "Home ownership documents" }
+    ],
+    downClues: [
+      { number: 1, text: "With 5 down, same day COVID exams" },
+      { number: 2, text: "Remove" },
+      { number: 3, text: "Popular software development approach" },
+      { number: 4, text: "Healed" },
+      { number: 5, text: "See 1 down" }
+    ]
   }
 ]
 
