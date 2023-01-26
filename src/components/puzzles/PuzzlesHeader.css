@@ -1,0 +1,14 @@
+.nextPuzzleDiv, .nextTableDiv {
+  max-width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.tableNum {
+  margin-top: 10px;
+  color: #88dfdf;
+}

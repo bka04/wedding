@@ -22,7 +22,7 @@ const CrosswordPowerUps = (props) => {
   return (
     <Fragment>
       <Button className="resetBtn" onClick={toggleAssistance}>
-        Toggle Assistance
+        {showAssistance ? "Hide Help Options" : "Show Help Options"}
       </Button>
       { showAssistance ? <PowerUps onClick={props.onClick}></PowerUps> : null}
     </Fragment>

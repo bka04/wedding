@@ -1,6 +1,7 @@
 import Button from "../UI/Button";
+import './PuzzlesHeader.css';
 
-const PuzzleHeader = (props) => {
+const PuzzlesByTableHeader = (props) => {
 
   return (
     <div className='dark nextPuzzleDiv'>
@@ -14,4 +15,4 @@ const PuzzleHeader = (props) => {
   );
 };
 
-export default PuzzleHeader;
+export default PuzzlesByTableHeader;

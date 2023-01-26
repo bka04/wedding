@@ -1,5 +1,6 @@
 const PUZZLES = [
   {
+    table: "1",
     id: "1",
     type: "crossword",
     answerText: 'reactarguepairsisletdeeds',
@@ -19,6 +20,7 @@ const PUZZLES = [
     ]
   },
   {
+    table: "1",
     id: "2",
     type: "crossword",
     answerText: 'glad shawauge purebloc agessugarcoat   doe   sweettalkiran icondisc minestye edge',
@@ -58,7 +60,8 @@ const PUZZLES = [
     ]
   },
   {
-    id: "3",
+    table: "2",
+    id: "1",
     type: "crossword",
     answerText: 'set   tagpain saleecru ironcheckmate   lip   queensideurdu odinages nerdden   ats',
     acrossClues: [

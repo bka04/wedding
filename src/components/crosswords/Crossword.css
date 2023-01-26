@@ -49,16 +49,6 @@
   }
 }
 
-.nextPuzzleDiv {
-  max-width: 400px;
-  margin-right: auto;
-  margin-left: auto;
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
 .crosswordFooter {
   display: flex;
   flex-direction: column;
