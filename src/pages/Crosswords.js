@@ -161,6 +161,8 @@ const Crosswords = (props) => {
     <Fragment>
       <PuzzlesHeader
         table={state.currentTable}
+        puzzle={state.currentPuzzle}
+        lastPuzzle={getLastPuzzleOfTable(state.currentTable)}
         onPrevTable={prevTableHandler}
         onNextTable={nextTableHandler}
         onNextPuzzle={nextPuzzleHandler}

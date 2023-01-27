@@ -6,7 +6,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
-.nextPuzzleBtn, .prevPuzzleBtn, .nextTableBtn, .prevTableBtn, .resetBtn {
+.puzzleHeaderBtn, .resetBtn {
   padding: 10px 14px;
   font-size: 16px;
   background-color: transparent;
@@ -27,7 +27,7 @@
   color: white;
 }
 
-.nextPuzzleBtn, .prevPuzzleBtn, .nextTableBtn, .prevTableBtn {
+.puzzleHeaderBtn {
   border-color: #202124;
   box-shadow: 0 0 40px 40px #202124 inset, 0 0 0 0 #202124;
   color: #bdc1c6;
@@ -36,8 +36,11 @@
   color: white; */
 }
 
-.nextTableBtn:hover, .prevTableBtn:hover,
-.nextPuzzleBtn:hover, .prevPuzzleBtn:hover {
+.puzzleHeaderBtn.active:hover {
   box-shadow: 0 0 10px 0 #202124 inset, 0 0 10px 4px #202124;
   /* box-shadow: 0 0 10px 0 #228b22 inset, 0 0 10px 4px #228b22; */
+}
+
+.puzzleHeaderBtn:disabled {
+  opacity: 50%;
 }

@@ -7,19 +7,28 @@ const PuzzlesHeader = (props) => {
   return (
     <Fragment>
     <div className='dark nextTableDiv'>
-      <Button className="prevTableBtn" onClick={props.onPrevTable}>
+      <Button className="puzzleHeaderBtn active" onClick={props.onPrevTable}>
         Previous Table
       </Button>
       <h4 className="tableNum">Table {props.table}</h4>
-      <Button className="nextTableBtn" onClick={props.onNextTable}>
+      <Button className="puzzleHeaderBtn active" onClick={props.onNextTable}>
         Next Table
       </Button>
     </div>
     <div className='dark nextPuzzleDiv'>
-      {props.isThisFirstPuzzle ? null : <Button className="prevPuzzleBtn" onClick={props.onPrevPuzzle}>
+      {<Button 
+        className={`puzzleHeaderBtn ${props.isThisFirstPuzzle ? "" : " active"}`}
+        onClick={props.onPrevPuzzle}
+        disabled={props.isThisFirstPuzzle ? "true" : "false"}
+      >
         Previous Puzzle
       </Button>}
-      {props.isThisLastPuzzle ? null : <Button className="nextPuzzleBtn" onClick={props.onNextPuzzle}>
+      <h5 className="tableNum">Puzzle {props.puzzle} of {props.lastPuzzle}</h5>
+      {<Button 
+        className={`puzzleHeaderBtn ${props.isThisLastPuzzle ? "" : " active"}`}
+        onClick={props.onNextPuzzle}
+        disabled={props.isThisLastPuzzle ? "true" : "false"}
+        >
         Next Puzzle
       </Button>}
     </div>
