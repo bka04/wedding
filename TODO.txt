@@ -1,4 +1,7 @@
-Pull out helper functions from Crossword.js
+Use drag and drop for jumble:
+  https://www.makeuseof.com/react-drag-and-drop-components/
+  https://react-dnd.github.io/react-dnd/examples/dustbin/multiple-targets
+  https://rootstack.com/en/blog/how-do-i-use-drag-and-drop-react
 
-Implement node.js -> change routing?
-Connect to database -> books data, puzzle data, user data
+Pull out helper functions from Crossword.js
+Connect to database
