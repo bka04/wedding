@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Crossword from "../crosswords/Crossword.js"
+import Jumble from "../jumble/Jumble.js";
 
 const PuzzlesByTable = (props) => {
   const {puzzlesByTable, currentPuzzle, currentTable} = props;
@@ -15,6 +16,15 @@ const PuzzlesByTable = (props) => {
         // isThisLastPuzzle={isThisLastPuzzle}
         puzzleID={currentPuzzle}
         tableID={currentTable}
+      /> : null}
+      {(puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).type === "jumble") ?
+      <Jumble
+        puzzleID={currentPuzzle}
+        tableID={currentTable}
+        questionText={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).questionText}
+        altText={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).altText}
+        answerBlanks={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).answerBlanks}
+        answerText={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).answerText}
       /> : null}
     </Fragment>
   );

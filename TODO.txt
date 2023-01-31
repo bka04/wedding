@@ -1,7 +1,11 @@
 Use drag and drop for jumble:
-  https://www.makeuseof.com/react-drag-and-drop-components/
+  https://react-dnd.github.io/react-dnd/examples/sortable/cancel-on-drop-outside
   https://react-dnd.github.io/react-dnd/examples/dustbin/multiple-targets
+
+  https://www.makeuseof.com/react-drag-and-drop-components/
   https://rootstack.com/en/blog/how-do-i-use-drag-and-drop-react
+
+Pull out puzzles from 'CrosswordPuzzles.js' and put into puzzles folder
 
 Pull out helper functions from Crossword.js
 Connect to database

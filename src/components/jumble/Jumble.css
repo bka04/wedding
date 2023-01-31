@@ -1,0 +1,11 @@
+.jumble-img {
+  width: 150px;
+}
+
+.jumble-outer-div {
+  padding: 20px;
+}
+
+.Droppable.over {
+  color: white;
+}

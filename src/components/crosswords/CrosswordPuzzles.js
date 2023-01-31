@@ -60,6 +60,15 @@ const PUZZLES = [
     ]
   },
   {
+    table: "1",
+    id: "3",
+    type: "jumble",
+    questionText: 'The bride misplaced part of her wedding outfit. She searched everywhere, but it was',
+    altText: 'A bride is searching for something but has to give up.',
+    answerBlanks: '_ _   _ _   _-_ _ _ _',
+    answerText: 'tonoaveil',
+  },
+  {
     table: "2",
     id: "1",
     type: "crossword",
