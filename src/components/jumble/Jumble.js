@@ -1,6 +1,7 @@
 import "./Jumble.css";
 import { Fragment } from "react";
 import Card from "../UI/Card";
+import JumbleCell from "./JumbleCell"
 
 const Jumble = (props) => {
   const {puzzleID, tableID, questionText, altText, answerBlanks, answerText} = props;
@@ -24,14 +25,8 @@ const Jumble = (props) => {
         <Card className="jumble-tile">B</Card>
         </div>
 
-        <div type="letter" data="_">
-          <div types={["letter"]} onDrop={handleDrop}>
-            <div>_</div>
-          </div>
-        </div>
-        <div types={["letter"]} onDrop={handleDrop}>
-          <div>_</div>
-        </div>
+        <JumbleCell/>
+        <JumbleCell/>
     </div>
   );
 };
