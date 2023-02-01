@@ -28,7 +28,8 @@ const CrosswordCell = (props) => {
         onKeyDown={props.onKeyDown}
         onMouseDown={props.onMouseDown}
         ref={cellInput}
-        readOnly
+        onChange={function () {}}
+        // readOnly
       />
       <span className='questionNumber'>{props.questionNumberDisplayed ? props.questionNumberDisplayed : ''}</span>
     </div>
