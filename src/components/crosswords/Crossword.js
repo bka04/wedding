@@ -410,7 +410,7 @@ const Crossword = (props) => {
           Reset Current Puzzle
         </Button>
         <div>
-          <p>Game icons made by Freepik from www.flaticon.com</p>
+          <p>Help icons made by Freepik from www.flaticon.com</p>
         </div>
       </div>
     </Fragment>

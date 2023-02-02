@@ -3,14 +3,26 @@ import { Fragment } from "react";
 import Card from "../UI/Card";
 import JumbleCell from "./JumbleCell";
 
+class JumbleCellData {
+  constructor(index) {
+    this.index = index;
+    this.value = "";
+    this.focus = false;
+    // this.locked = false;
+    // this.wrong = false;
+  }
+}
+
+const initialState = {
+  cellData: [],
+  selectedCell: 0,
+  solved: false
+};
+
+
 const Jumble = (props) => {
   const { puzzleID, tableID, questionText, altText, answerBlanks, answerText } =
     props;
-
-  const handleDrop = (data, event) => {
-    console.log(data);
-    console.log(event);
-  };
 
   return (
     <div className="jumble-outer-div">
@@ -21,23 +33,21 @@ const Jumble = (props) => {
       />
       <div className="jumble-card-div">
         <Card className="dark jumble-question">
-          <div>The bride misplaced part of her wedding outfit. She searched everywhere, but it was...</div>
+          <div>{questionText}</div>
         </Card>
       </div>
 
       <div className="answer-blanks">
-        <JumbleCell />
-        <JumbleCell />
-        <div className="answer-word-break"></div>
-        <JumbleCell />
-        <JumbleCell />
-        <div className="answer-word-break"></div>
-        <JumbleCell />
-        <div className="answer-other-char">-</div>
-        <JumbleCell />
-        <JumbleCell />
-        <JumbleCell />
-        <JumbleCell />
+        {answerBlanks.split("").map(letter => {
+          switch (letter) {
+            case "_":
+              return <JumbleCell />
+            case " ":
+              return <div className="answer-word-break"></div>
+            default:
+              return <div className="answer-other-char">{letter}</div>
+          }
+        })}
       </div>
 
       <div className="jumble-card-div">

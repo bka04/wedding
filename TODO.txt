@@ -7,5 +7,6 @@ Rearrange available letters (like spelling bee)
 
 Pull out puzzles from 'CrosswordPuzzles.js' and put into puzzles folder
 
+Use a class for crossword cell data
 Pull out helper functions from Crossword.js
 Connect to database
