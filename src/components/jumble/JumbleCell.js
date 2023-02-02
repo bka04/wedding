@@ -22,13 +22,14 @@ const JumbleCell = (props) => {
         type="text"
         size="1"
         maxLength="1"
-        value={props.cellValue}
+        value={props.cellValue || ''}
         //disabled={props.disabled}
-        //data-cellnum={props["data-cellnum"]}
+        data-cellnum={props["data-cellnum"]}
         onKeyDown={props.onKeyDown}
         onMouseDown={props.onMouseDown}
         ref={cellInput}
-        readOnly
+        onChange={function () {}}
+        //readOnly
       />
     </div>
   );

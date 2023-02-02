@@ -8,7 +8,8 @@ Shade or circle or otherwise highlight crossword cells that will be used in jumb
 Pass crossword cells used in jumble to the jumble... use ? or _ if dont have them all?
 
 Pull out puzzles from 'CrosswordPuzzles.js' and put into puzzles folder
-
+Rename "allcrosswordsdata" and the like to "allpuzzlesdata"
 Use a class for crossword cell data
 Pull out helper functions from Crossword.js
+
 Connect to database
