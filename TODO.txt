@@ -4,6 +4,8 @@ Make inputs for jumble
 Cross out available letters as you use them?
   If so, enable them again on delete
 Rearrange available letters (like spelling bee)
+Shade or circle or otherwise highlight crossword cells that will be used in jumble
+Pass crossword cells used in jumble to the jumble... use ? or _ if dont have them all?
 
 Pull out puzzles from 'CrosswordPuzzles.js' and put into puzzles folder
 

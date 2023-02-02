@@ -1,17 +1,8 @@
 import "./Jumble.css";
-import { Fragment } from "react";
+import { useReducer, useEffect } from "react";
 import Card from "../UI/Card";
 import JumbleCell from "./JumbleCell";
 
-class JumbleCellData {
-  constructor(index) {
-    this.index = index;
-    this.value = "";
-    this.focus = false;
-    // this.locked = false;
-    // this.wrong = false;
-  }
-}
 
 const initialState = {
   cellData: [],
@@ -19,10 +10,46 @@ const initialState = {
   solved: false
 };
 
+const reducer = (state, action) => {
+
+  // if (action.type === "loadStateFromStorage") {
+  //   return action.storedCrosswordData;
+  // }
+  if (action.type === "setData") {
+    return {
+      cellData: action.initialCellData,
+      selectedCell: 0,
+      solved: false
+    };
+  }
+
+  let newState = {...state, cellData: state.cellData.slice()}; //to avoid directly mutating state
+
+
+}
 
 const Jumble = (props) => {
-  const { puzzleID, tableID, questionText, altText, answerBlanks, answerText } =
+  const { puzzleID, tableID, initialCellData, questionText, altText, answerBlanks, answerText } =
     props;
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+
+    const storedCrosswordData = null ; // crosswordMethods.loadCrosswordData(props.puzzleID, props.tableID);
+    if (storedCrosswordData !== null) { //was there data saved to browser for this puzzle?
+      dispatch({ type: "loadStateFromStorage", storedCrosswordData });
+    } else
+      dispatch({ type: "setData", initialCellData, puzzleID, tableID });
+  }, [initialCellData, puzzleID, tableID]);
+
+
+  const onKeyDownHandler = (event) => {
+    dispatch({ type: "keydown", event, answerText, puzzleID, tableID });
+  };
+
+  const onMouseDownHandler = (event) => {
+    dispatch({ type: "mousedown", event, puzzleID, tableID });
+  };
 
   return (
     <div className="jumble-outer-div">
@@ -38,16 +65,21 @@ const Jumble = (props) => {
       </div>
 
       <div className="answer-blanks">
-        {answerBlanks.split("").map(letter => {
-          switch (letter) {
-            case "_":
-              return <JumbleCell />
-            case " ":
-              return <div className="answer-word-break"></div>
+        {state.cellData.map((cell, i) => {
+          switch (cell.type) {
+            case "letter":
+              return <JumbleCell
+                key={i}
+                focus={state.cellData[i].focus}
+                //cellValue={state.cellData[i].cellValue}
+              />
+            case "space":
+              return <div key={i} className="answer-word-break"></div>
             default:
-              return <div className="answer-other-char">{letter}</div>
+              return <div key={i} className="answer-other-char">{cell.cellValue}</div>
           }
         })}
+
       </div>
 
       <div className="jumble-card-div">

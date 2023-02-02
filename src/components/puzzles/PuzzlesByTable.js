@@ -21,6 +21,7 @@ const PuzzlesByTable = (props) => {
       <Jumble
         puzzleID={currentPuzzle}
         tableID={currentTable}
+        initialCellData={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).cellData}
         questionText={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).questionText}
         altText={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).altText}
         answerBlanks={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).answerBlanks}

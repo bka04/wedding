@@ -3,27 +3,28 @@ const PUZZLES = [
     table: "1",
     id: "1",
     type: "crossword",
-    answerText: 'reactarguepairsisletdeeds',
+    answerText: "reactarguepairsisletdeeds",
     acrossClues: [
       { number: 1, text: "Respond.  Also a popular JavaScript framework" },
       { number: 6, text: "Debate" },
       { number: 7, text: "These are worth two points in cribbage" },
       { number: 8, text: "Florida Keys, e.g." },
-      { number: 9, text: "Home ownership documents" }
+      { number: 9, text: "Home ownership documents" },
     ],
     downClues: [
       { number: 1, text: "With 5 down, same day COVID exams" },
       { number: 2, text: "Remove" },
       { number: 3, text: "Popular software development approach" },
       { number: 4, text: "Healed" },
-      { number: 5, text: "See 1 down" }
-    ]
+      { number: 5, text: "See 1 down" },
+    ],
   },
   {
     table: "1",
     id: "2",
     type: "crossword",
-    answerText: 'glad shawauge purebloc agessugarcoat   doe   sweettalkiran icondisc minestye edge',
+    answerText:
+      "glad shawauge purebloc agessugarcoat   doe   sweettalkiran icondisc minestye edge",
     acrossClues: [
       { number: 1, text: "Happy" },
       { number: 5, text: "Manchester United defender Luke" },
@@ -39,12 +40,15 @@ const PUZZLES = [
       { number: 24, text: "Word preceding golf or jockey" },
       { number: 25, text: "Not yours" },
       { number: 26, text: "Eyelid lump" },
-      { number: 27, text: "Microsoft's web browser" }
+      { number: 27, text: "Microsoft's web browser" },
     ],
     downClues: [
       { number: 1, text: "Jabbers" },
       { number: 2, text: "Athleisure giant, colloquially" },
-      { number: 3, text: "Les Miserables song ABC Cafe/Red and Black: 'I am ___! I am aghast! Is Marius in love at last?'" },
+      {
+        number: 3,
+        text: "Les Miserables song ABC Cafe/Red and Black: 'I am ___! I am aghast! Is Marius in love at last?'",
+      },
       { number: 4, text: "Luxurious self-indulgence" },
       { number: 5, text: "Four-dimensional continuum" },
       { number: 6, text: "Les Miserables author" },
@@ -56,23 +60,25 @@ const PUZZLES = [
       { number: 18, text: "Not hard" },
       { number: 19, text: "Base counterpart" },
       { number: 20, text: "Like Rip Van Winkle's slumber or Gandalf's beard" },
-      { number: 21, text: "It's slapped in laughter" }
-    ]
+      { number: 21, text: "It's slapped in laughter" },
+    ],
   },
   {
     table: "1",
     id: "3",
     type: "jumble",
-    questionText: 'The bride misplaced part of her wedding outfit. She searched everywhere, but it was',
-    altText: 'A bride is searching for something but has to give up.',
-    answerBlanks: '__ __ _-____',
-    answerText: 'tonoaveil',
+    questionText:
+      "The bride misplaced part of her wedding outfit. She searched everywhere, but it was",
+    altText: "A bride is searching for something but has to give up.",
+    answerBlanks: "__ __ _-____",
+    answerText: "to no a-veil",
   },
   {
     table: "2",
     id: "1",
     type: "crossword",
-    answerText: 'set   tagpain saleecru ironcheckmate   lip   queensideurdu odinages nerdden   ats',
+    answerText:
+      "set   tagpain saleecru ironcheckmate   lip   queensideurdu odinages nerdden   ats",
     acrossClues: [
       { number: 1, text: "Tennis scoring unit" },
       { number: 4, text: "Playground activity" },
@@ -88,7 +94,7 @@ const PUZZLES = [
       { number: 23, text: "Periods" },
       { number: 24, text: "Jock's counterpart" },
       { number: 25, text: "Thieves' locale" },
-      { number: 26, text: "Alphabet position after R" }
+      { number: 26, text: "Alphabet position after R" },
     ],
     downClues: [
       { number: 1, text: "Reqt." },
@@ -105,57 +111,68 @@ const PUZZLES = [
       { number: 17, text: "Biblical garden" },
       { number: 18, text: "Lightbulb cause" },
       { number: 19, text: "Earth" },
-      { number: 20, text: "Burnt at a barbeque" }
-    ]
+      { number: 20, text: "Burnt at a barbeque" },
+    ],
   },
   {
     table: "2",
     id: "2",
     type: "crossword",
-    answerText: 'reactarguepairsisletdeeds',
+    answerText: "reactarguepairsisletdeeds",
     acrossClues: [
       { number: 1, text: "TESTING! Puzzle 2 of table 2" },
       { number: 6, text: "Debate" },
       { number: 7, text: "These are worth two points in cribbage" },
       { number: 8, text: "Florida Keys, e.g." },
-      { number: 9, text: "Home ownership documents" }
+      { number: 9, text: "Home ownership documents" },
     ],
     downClues: [
       { number: 1, text: "With 5 down, same day COVID exams" },
       { number: 2, text: "Remove" },
       { number: 3, text: "Popular software development approach" },
       { number: 4, text: "Healed" },
-      { number: 5, text: "See 1 down" }
-    ]
-  },  {
+      { number: 5, text: "See 1 down" },
+    ],
+  },
+  {
     table: "2",
     id: "3",
     type: "crossword",
-    answerText: 'reactarguepairsisletdeeds',
+    answerText: "reactarguepairsisletdeeds",
     acrossClues: [
       { number: 1, text: "ANOTHER TEST. Table 2 puzzle 3" },
       { number: 6, text: "Debate" },
       { number: 7, text: "These are worth two points in cribbage" },
       { number: 8, text: "Florida Keys, e.g." },
-      { number: 9, text: "Home ownership documents" }
+      { number: 9, text: "Home ownership documents" },
     ],
     downClues: [
       { number: 1, text: "With 5 down, same day COVID exams" },
       { number: 2, text: "Remove" },
       { number: 3, text: "Popular software development approach" },
       { number: 4, text: "Healed" },
-      { number: 5, text: "See 1 down" }
-    ]
+      { number: 5, text: "See 1 down" },
+    ],
+  },
+];
+
+class JumbleCellData {
+  constructor(index) {
+    this.index = index;
+    this.cellValue = "";
+    this.type = "";
+    this.focus = false;
+    // this.locked = false;
+    // this.wrong = false;
   }
-]
-
-
+}
 
 for (let i = 0; i < PUZZLES.length; i++) {
-
   if (PUZZLES[i].type === "crossword") {
     //split out the answer string into an array of letters
-    PUZZLES[i].answers = PUZZLES[i].answerText.split('').map(letter => letter.replace(' ', ''));
+    PUZZLES[i].answers = PUZZLES[i].answerText
+      .split("")
+      .map((letter) => letter.replace(" ", ""));
 
     //populate cell data based on the answers
     PUZZLES[i].cellData = [];
@@ -164,28 +181,48 @@ for (let i = 0; i < PUZZLES.length; i++) {
       if (j === 0) {
         focus = true;
       }
-    
+
       let locked = false;
       let disabled = false;
       let wrong = false;
-    
-      if (PUZZLES[i].answers[j] === '') {
+
+      if (PUZZLES[i].answers[j] === "") {
         disabled = true;
       }
-    
+
       PUZZLES[i].cellData.push({
-        id: j+1,
+        id: j + 1,
         disabled,
         focus,
         value: "",
         locked,
-        wrong
+        wrong,
       });
     }
   } else if (PUZZLES[i].type === "jumble") {
-    //jumble setup here
+    PUZZLES[i].cellData = [];
+
+    for (let j = 0; j < PUZZLES[i].answerText.length; j++) {
+      let cellData = new JumbleCellData(j);
+
+      if (j === 0) {
+        cellData.focus = true;
+      }
+
+      let letter = PUZZLES[i].answerText[j];
+      if (letter.toLowerCase() !== letter.toUpperCase()) {
+        //letter a-z
+        cellData.type = "letter";
+      } else if (letter === " ") {
+        cellData.type = "space";
+      } else {
+        cellData.type = "other";
+        cellData.cellValue = letter;
+      }
+
+      PUZZLES[i].cellData.push(cellData);
+    }
   }
 }
-
 
 export default PUZZLES;
