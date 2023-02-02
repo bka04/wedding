@@ -1,4 +1,4 @@
-.cell input {
+.jumble-cell input {
   width: 40px;
   height: 40px;
   text-align: center;
@@ -11,27 +11,27 @@
   cursor: pointer;
   margin: 5px;
 }
-.cell input:focus {
+.jumble-cell input:focus {
   /* background-color: rgb(200, 200, 200); */
   background-color: #70bbbb;
 }
-.cell input:disabled {
+.jumble-cell input:disabled {
   background-color: black;
 }
 
-.cellHighlight {
+.jumble-cell-highlight {
   /* background-color: rgb(233, 233, 233); */
   background-color: #88dfdf;
 }
 
-.cellLocked {
+.jumble-cell-locked {
   color: darkblue;
 }
 
-.cellWrong {
+.jumble-cell-wrong {
   text-decoration: red line-through;
 }
 
-.cell {
+.jumble-cell {
   position: relative;
 }

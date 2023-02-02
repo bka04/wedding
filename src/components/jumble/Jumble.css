@@ -1,5 +1,8 @@
 .jumble-img {
   width: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .jumble-outer-div {
@@ -8,6 +11,7 @@
 
 .answer-blanks {
   display: flex;
+  justify-content: center;
 }
 
 .answer-word-break {
@@ -15,8 +19,22 @@
   height: 40px;
 }
 
-.available-jumble-letter {
+.jumble-card-div {
+  display: flex;
+  justify-content: center;
   color: white;
+}
+
+.available-jumble-letters {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.available-jumble-letter {
+  /* color: white; */
   margin-left: 10px;
   font-size: larger;
 }

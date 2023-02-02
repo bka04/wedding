@@ -1,3 +1,5 @@
+Handle small screen size for jumble
+
 Make inputs for jumble
 Cross out available letters as you use them?
   If so, enable them again on delete

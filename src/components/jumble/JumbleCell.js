@@ -11,7 +11,7 @@ const JumbleCell = (props) => {
   })
 
   return (
-    <div className="cell">
+    <div className="jumble-cell">
       <input
       //{`${cell.className} ${cell.highlight ? 'cellHighlight' : ''}`}
         className={`cellInput ${props.className ? props.className : ''}` 
