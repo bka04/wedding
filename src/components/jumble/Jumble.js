@@ -18,15 +18,32 @@ const Jumble = (props) => {
           alt={altText}
           className="jumble-img"
         />
-        <div type="letter" data="A">
-          <Card className="jumble-tile">A</Card>
-        </div>
-        <div type="letter" data="B">
-        <Card className="jumble-tile">B</Card>
-        </div>
+        <Card className="available-jumble-letters dark">
+          <div className="available-jumble-letter">L</div>
+          <div className="available-jumble-letter">E</div>
+          <div className="available-jumble-letter">N</div>
+          <div className="available-jumble-letter">T</div>
+          <div className="available-jumble-letter">O</div>
+          <div className="available-jumble-letter">V</div>
+          <div className="available-jumble-letter">O</div>
+          <div className="available-jumble-letter">I</div>
+          <div className="available-jumble-letter">A</div>
+        </Card>
 
-        <JumbleCell/>
-        <JumbleCell/>
+        <div className="answer-blanks">
+          <JumbleCell/>
+          <JumbleCell/>
+          <div className="answer-word-break"></div>
+          <JumbleCell/>
+          <JumbleCell/>
+          <div className="answer-word-break"></div>
+          <JumbleCell/>
+          <div className="answer-other-char">-</div>
+          <JumbleCell/>
+          <JumbleCell/>
+          <JumbleCell/>
+          <JumbleCell/>
+        </div>
     </div>
   );
 };

@@ -13,11 +13,12 @@
   background-color: #202124;
 }
 
-.card.jumble-tile {
-  background-color: #88dfdf;
-  width: 50px;
+.card.available-jumble-letters {
   height: 50px;
   text-align: center;
   vertical-align: middle;
   line-height: 20px;
+  display: flex;
+  justify-content: center;
+
 }

@@ -6,6 +6,26 @@
   padding: 20px;
 }
 
-.Droppable.over {
+.answer-blanks {
+  display: flex;
+}
+
+.answer-word-break {
+  width: 30px;
+  height: 40px;
+}
+
+.available-jumble-letter {
   color: white;
+  margin-left: 10px;
+  font-size: larger;
+}
+
+.answer-other-char {
+  width: 10px;
+  height: 40px;
+  font-size: larger;
+  font-weight: bolder;
+  margin-top: auto;
+  color: #88dfdf;
 }
