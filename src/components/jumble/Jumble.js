@@ -173,6 +173,7 @@ const Jumble = (props) => {
                 cellValue={state.cellData[i].cellValue}
                 data-cellnum={state.cellData[i].index}
                 onKeyDown={onKeyDownHandler}
+                onMouseDown={onMouseDownHandler}
               />
             case "space":
               return <div key={i} className="answer-word-break"></div>
