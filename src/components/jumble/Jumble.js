@@ -10,12 +10,20 @@ const initialState = {
   solved: false
 };
 
+const clearCellDisplay = (cellData) => {
+  return cellData.map((cell) => ({
+    ...cell,
+    focus: false
+  })); 
+}
+
 const getNextLetterCellIndex = (state, index) => {
   const letterCells = state.cellData.filter(cell => cell.type === "letter");
   letterCells.sort((a, b) => a.index - b.index);
   const letterCellIndex = letterCells.findIndex(cell => cell.index === index);
   return letterCells[letterCellIndex + 1] ? letterCells[letterCellIndex + 1].index : letterCells[0].index;
 }
+
 
 const reducer = (state, action) => {
 
@@ -36,18 +44,19 @@ const reducer = (state, action) => {
   let index = parseInt(action.event.target.dataset.cellnum);
 
   if (
-    action.type === "mousedown" ||
-    (action.type === "keydown" &&
-      (action.event.keyCode === 13 || action.event.keyCode === 32)) //space/enter
+    action.type === "mousedown" // select the clicked cell
   ) {
-    // select next cell
+    // select cell
+    newState.cellData = clearCellDisplay(newState.cellData);
+    newState.cellData[index].focus = true;
+
     const jumbleData = {
       cellData: newState.cellData,
-      selectedCell: getNextLetterCellIndex(newState, index),
+      selectedCell: index,
       solved: newState.solved
     }
     crosswordMethods.saveCrosswordData(jumbleData, action.puzzleID, action.tableID);
-    return jumbleData;
+    return jumbleData; //end click (mousedown) or space/enter keydown
 
   } else if (action.type === "keydown") {
     if (action.event.keyCode === 8 || action.event.keyCode === 46) { //backspace/delete
@@ -56,6 +65,19 @@ const reducer = (state, action) => {
       //crosswordMethods.saveCrosswordData(jumbleData, action.puzzleID, action.tableID)
       //return 
     } //end backspace/delete
+
+    if (action.event.keyCode === 32 && newState.cellData[index].cellValue !== "") { //space button
+      // clear cell but stay where you are
+      newState.cellData[index].cellValue = "";
+      const jumbleData = {
+        cellData: newState.cellData,
+        selectedCell: index,
+        solved: newState.solved
+      }
+      crosswordMethods.saveCrosswordData(jumbleData, action.puzzleID, action.tableID);
+      return jumbleData; //end click (mousedown) or space/enter keydown
+
+    }
 
     if (
       (action.event.keyCode < 65 || action.event.keyCode > 90) && //not a letter
@@ -85,10 +107,11 @@ const reducer = (state, action) => {
         // if (solved) { //if so, lock all letters in grid and alert user of great success
         //   newState = crosswordMethods.handleSolvedGrid(newState);
         // }
-        index = getNextLetterCellIndex(newState, index);
       }
     }
 
+    index = getNextLetterCellIndex(newState, index);
+    newState.cellData = clearCellDisplay(newState.cellData);
     newState.cellData[index].focus = true;
 
     const jumbleData = {
