@@ -21,6 +21,8 @@
 //   }
 // ]
 
+import PUZZLES from "./CrosswordPuzzles";
+
 const crosswordMethods = {
 
   saveCrosswordData: (crosswordData, puzzleID, tableID) => {
@@ -58,16 +60,22 @@ const crosswordMethods = {
     }
   },
 
-  //takes the table ID of the jumble and returns letters entered in the crossword that are for the jumble
-  getJumbleAvailableLettersFromCrosswords: (tableID) => {
+  //takes the puzzle and table ID of the jumble and returns letters entered in the crossword that are for the jumble
+  //then checks the jumble to see if there are more letters needed. If so, fills in underscores
+  getJumbleAvailableLettersFromCrosswords: (tableID, puzzleID) => {
     const allCrosswordsData = crosswordMethods.loadAllCrosswordsData();
     const puzzlesForTable = allCrosswordsData.filter(puzzle => (puzzle.table === tableID));
     let availableLetters = [];
     puzzlesForTable.forEach(puzzle => {
       availableLetters = availableLetters.concat(
-        puzzle.crosswordData.cellData.filter(cellData => cellData.usedForJumble).map(cell => cell.value)
+        puzzle.crosswordData.cellData.filter(cellData => cellData.usedForJumble && cellData.value !== "").map(cell => cell.value)
       );
     })
+    const answerLength = PUZZLES.find(puzzle => (puzzle.id === puzzleID && puzzle.table === tableID)).answerTextLetters.length;
+
+    while (availableLetters.length < answerLength){
+      availableLetters.push("_")
+    }
     return availableLetters;
   },
 

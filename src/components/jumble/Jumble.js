@@ -92,7 +92,7 @@ const reducer = (state, action) => {
 
   if (action.type === "loadStateFromStorage") {
     //get the most recent available letters in case user went back to crosswords
-    const availableLetters = mapAvailableLetters(crosswordMethods.getJumbleAvailableLettersFromCrosswords(action.tableID))
+    const availableLetters = mapAvailableLetters(crosswordMethods.getJumbleAvailableLettersFromCrosswords(action.tableID, action.puzzleID))
     action.storedCrosswordData.availableLetters = availableLetters;
     const newState = markAvailableLettersAsUsed(action.storedCrosswordData);
     return {
@@ -103,7 +103,7 @@ const reducer = (state, action) => {
     };
   }
   if (action.type === "setData") {
-    const availableLetters = mapAvailableLetters(crosswordMethods.getJumbleAvailableLettersFromCrosswords(action.tableID))
+    const availableLetters = mapAvailableLetters(crosswordMethods.getJumbleAvailableLettersFromCrosswords(action.tableID, action.puzzleID))
     return {
       cellData: action.initialCellData,
       selectedCell: 0,
@@ -208,7 +208,7 @@ const Jumble = (props) => {
 
     const storedCrosswordData = crosswordMethods.loadCrosswordData(puzzleID, tableID);
     if (storedCrosswordData !== null) { //was there data saved to browser for this puzzle?
-      dispatch({ type: "loadStateFromStorage", storedCrosswordData, tableID });
+      dispatch({ type: "loadStateFromStorage", storedCrosswordData, puzzleID, tableID });
     } else
       dispatch({ type: "setData", initialCellData, availableLetters, puzzleID, tableID });
   }, [initialCellData, availableLetters, puzzleID, tableID]);
