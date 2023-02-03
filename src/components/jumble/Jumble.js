@@ -186,7 +186,13 @@ const Jumble = (props) => {
           <div className="available-jumble-letter">O</div>
           <div className="available-jumble-letter">I</div>
           <div className="available-jumble-letter">A</div>
+          <img
+            src={require("../../assets/icon-refresh.png").default}
+            alt="refresh"
+            className="jumble-refresh"
+          />
         </Card>
+        
       </div>
     </div>
   );
