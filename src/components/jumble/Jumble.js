@@ -28,6 +28,13 @@ const shuffle = (array) => {
   return array;
 }
 
+const shuffleAvailableLetters = (availableLetters) => {
+  //split out not used and used letters. shuffle the not used letters and combine.
+  const shuffledNotUsedLetters = shuffle(availableLetters.filter(letter => !letter.usedInGuess));
+  const usedLetters = availableLetters.filter(letter => letter.usedInGuess);
+  return shuffledNotUsedLetters.concat(usedLetters);
+}
+
 const clearCellDisplay = (cellData) => {
   return cellData.map((cell) => ({
     ...cell,
@@ -87,7 +94,7 @@ const reducer = (state, action) => {
       cellData: action.initialCellData,
       selectedCell: 0,
       solved: false,
-      availableLetters: shuffle(availableLetters)
+      availableLetters: shuffleAvailableLetters(availableLetters)
     };
   }
 
@@ -98,7 +105,7 @@ const reducer = (state, action) => {
       cellData: newState.cellData,
       selectedCell: newState.index,
       solved: newState.solved,
-      availableLetters: shuffle(newState.availableLetters)
+      availableLetters: shuffleAvailableLetters(newState.availableLetters)
     }
     crosswordMethods.saveCrosswordData(jumbleData, action.puzzleID, action.tableID);
     return jumbleData; //end click (mousedown) or space/enter keydown
