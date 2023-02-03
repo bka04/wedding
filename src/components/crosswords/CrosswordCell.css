@@ -12,7 +12,7 @@
 }
 .cell input:focus {
   /* background-color: rgb(200, 200, 200); */
-  background-color: #70bbbb;
+  background-color: #5ca4a4;
 }
 .cell input:disabled {
   background-color: black;
@@ -33,6 +33,11 @@
 
 .cellUsedForJumble {
   background-color: lightgray;
+  /* border: 2px solid black !important; */
+}
+
+.cellHighlight.cellUsedForJumble {
+  background-color: #70bbbb;
 }
 
 .cell {
