@@ -31,6 +31,10 @@
   text-decoration: red line-through;
 }
 
+.cellUsedForJumble {
+  background-color: lightgray;
+}
+
 .cell {
   position: relative;
 }

@@ -69,7 +69,7 @@ const markAvailableLettersAsUsed = (state) => {
   const cellDataLetters = state.cellData.filter(cell => (cell.type === "letter" && cell.cellValue !== "")); 
 
   cellDataLetters.forEach((cell) => {
-    const foundIndex = state.availableLetters.findIndex(letter => (letter.letter.toLowerCase() === cell.cellValue.toLowerCase()) && (!letter.usedInGuess));
+    const foundIndex = state.availableLetters.findLastIndex(letter => (letter.letter.toLowerCase() === cell.cellValue.toLowerCase()) && (!letter.usedInGuess));
     if (foundIndex > -1) {
       state.availableLetters[foundIndex].usedInGuess = true;
     }
@@ -78,18 +78,32 @@ const markAvailableLettersAsUsed = (state) => {
   return state;
 }
 
+const mapAvailableLetters = (letterArray) => {
+  return letterArray.map((letter) => {
+    return {
+      letter: letter,
+      usedInGuess: false
+    }
+  });
+}
+
+
 const reducer = (state, action) => {
 
   if (action.type === "loadStateFromStorage") {
-    return action.storedCrosswordData;
+    //get the most recent available letters in case user went back to crosswords
+    const availableLetters = mapAvailableLetters(crosswordMethods.getJumbleAvailableLettersFromCrosswords(action.tableID))
+    action.storedCrosswordData.availableLetters = availableLetters;
+    const newState = markAvailableLettersAsUsed(action.storedCrosswordData);
+    return {
+      cellData: newState.cellData,
+      selectedCell: newState.selectedCell,
+      solved: newState.solved,
+      availableLetters: shuffleAvailableLetters(newState.availableLetters)
+    };
   }
   if (action.type === "setData") {
-    const availableLetters = action.availableLetters.map((letter) => {
-      return {
-        letter: letter,
-        usedInGuess: false
-      }
-    })
+    const availableLetters = mapAvailableLetters(crosswordMethods.getJumbleAvailableLettersFromCrosswords(action.tableID))
     return {
       cellData: action.initialCellData,
       selectedCell: 0,
@@ -182,7 +196,8 @@ const reducer = (state, action) => {
     throw new Error();
   }
 
-};
+}; //end reducer
+
 
 const Jumble = (props) => {
   const { puzzleID, tableID, initialCellData, questionText, altText, answerText, availableLetters } =
@@ -193,7 +208,7 @@ const Jumble = (props) => {
 
     const storedCrosswordData = crosswordMethods.loadCrosswordData(puzzleID, tableID);
     if (storedCrosswordData !== null) { //was there data saved to browser for this puzzle?
-      dispatch({ type: "loadStateFromStorage", storedCrosswordData });
+      dispatch({ type: "loadStateFromStorage", storedCrosswordData, tableID });
     } else
       dispatch({ type: "setData", initialCellData, availableLetters, puzzleID, tableID });
   }, [initialCellData, availableLetters, puzzleID, tableID]);

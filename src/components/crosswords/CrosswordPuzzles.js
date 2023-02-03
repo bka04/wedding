@@ -3,7 +3,8 @@ const PUZZLES = [
     table: "1",
     id: "1",
     type: "crossword",
-    answerText: "reactarguepairsisletdeeds",
+    answerText:    "reactarguepairsisletdeeds",
+    usedForJumble: "         x  x            ",
     acrossClues: [
       { number: 1, text: "Respond.  Also a popular JavaScript framework" },
       { number: 6, text: "Debate" },
@@ -25,6 +26,8 @@ const PUZZLES = [
     type: "crossword",
     answerText:
       "glad shawauge purebloc agessugarcoat   doe   sweettalkiran icondisc minestye edge",
+    usedForJumble:
+      "  x                 x            x               x                    x          ",
     acrossClues: [
       { number: 1, text: "Happy" },
       { number: 5, text: "Manchester United defender Luke" },
@@ -79,6 +82,8 @@ const PUZZLES = [
     type: "crossword",
     answerText:
       "set   tagpain saleecru ironcheckmate   lip   queensideurdu odinages nerdden   ats",
+    usedForJumble:
+      "                                                                                 ",
     acrossClues: [
       { number: 1, text: "Tennis scoring unit" },
       { number: 4, text: "Playground activity" },
@@ -118,7 +123,8 @@ const PUZZLES = [
     table: "2",
     id: "2",
     type: "crossword",
-    answerText: "reactarguepairsisletdeeds",
+    answerText:    "reactarguepairsisletdeeds",
+    usedForJumble: "                         ",
     acrossClues: [
       { number: 1, text: "TESTING! Puzzle 2 of table 2" },
       { number: 6, text: "Debate" },
@@ -138,7 +144,8 @@ const PUZZLES = [
     table: "2",
     id: "3",
     type: "crossword",
-    answerText: "reactarguepairsisletdeeds",
+    answerText:    "reactarguepairsisletdeeds",
+    usedForJumble: "                         ",
     acrossClues: [
       { number: 1, text: "ANOTHER TEST. Table 2 puzzle 3" },
       { number: 6, text: "Debate" },
@@ -185,9 +192,14 @@ for (let i = 0; i < PUZZLES.length; i++) {
       let locked = false;
       let disabled = false;
       let wrong = false;
+      let usedForJumble = false;
 
       if (PUZZLES[i].answers[j] === "") {
         disabled = true;
+      }
+
+      if (PUZZLES[i].usedForJumble[j] === "x") {
+        usedForJumble = true;
       }
 
       PUZZLES[i].cellData.push({
@@ -197,6 +209,7 @@ for (let i = 0; i < PUZZLES.length; i++) {
         value: "",
         locked,
         wrong,
+        usedForJumble
       });
     }
   } else if (PUZZLES[i].type === "jumble") {

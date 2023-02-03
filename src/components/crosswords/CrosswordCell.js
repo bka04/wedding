@@ -18,6 +18,7 @@ const CrosswordCell = (props) => {
           + `${props.highlight ? ' cellHighlight' : ''}`
           + `${props.locked ? ' cellLocked' : ''}`
           + `${props.wrong ? ' cellWrong' : ''}`
+          + `${props.usedForJumble ? ' cellUsedForJumble' : ''}`
         }
         type="text"
         size="1"

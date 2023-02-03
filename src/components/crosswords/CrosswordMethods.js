@@ -58,6 +58,19 @@ const crosswordMethods = {
     }
   },
 
+  //takes the table ID of the jumble and returns letters entered in the crossword that are for the jumble
+  getJumbleAvailableLettersFromCrosswords: (tableID) => {
+    const allCrosswordsData = crosswordMethods.loadAllCrosswordsData();
+    const puzzlesForTable = allCrosswordsData.filter(puzzle => (puzzle.table === tableID));
+    let availableLetters = [];
+    puzzlesForTable.forEach(puzzle => {
+      availableLetters = availableLetters.concat(
+        puzzle.crosswordData.cellData.filter(cellData => cellData.usedForJumble).map(cell => cell.value)
+      );
+    })
+    return availableLetters;
+  },
+
   //Populate the across and down question numbers for each cell
   //Also determine which cells need to display a question number
   populateNumbers: (data) => {

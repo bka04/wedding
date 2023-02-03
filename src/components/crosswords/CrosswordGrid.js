@@ -14,6 +14,7 @@ const CrosswordGrid = (props) => {
       highlight={cell.highlight}
       locked={cell.locked}
       wrong={cell.wrong}
+      usedForJumble={cell.usedForJumble}
       data-cellnum={cell.id}
       key={cell.id}
       focus={cell.focus}
