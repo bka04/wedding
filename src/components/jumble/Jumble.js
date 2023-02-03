@@ -7,8 +7,26 @@ import crosswordMethods from "../crosswords/CrosswordMethods";
 const initialState = {
   cellData: [],
   selectedCell: 0,
-  solved: false
+  solved: false,
+  availableLetters: []
 };
+
+const shuffle = (array) => {
+  let currentIndex = array.length,  randomIndex;
+
+  while (currentIndex !== 0) { // while elements remain to shuffle
+
+    // get a remaining element
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // swap with the current element
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
 
 const clearCellDisplay = (cellData) => {
   return cellData.map((cell) => ({
@@ -43,12 +61,25 @@ const reducer = (state, action) => {
     return {
       cellData: action.initialCellData,
       selectedCell: 0,
-      solved: false
+      solved: false,
+      availableLetters: shuffle(action.availableLetters)
     };
   }
 
   let newState = {...state, cellData: state.cellData.slice()}; //to avoid directly mutating state
   
+  if (action.type === "shuffleAvailableLetters") {
+    const jumbleData = {
+      cellData: newState.cellData,
+      selectedCell: newState.index,
+      solved: newState.solved,
+      availableLetters: shuffle(newState.availableLetters)
+    }
+    crosswordMethods.saveCrosswordData(jumbleData, action.puzzleID, action.tableID);
+    return jumbleData; //end click (mousedown) or space/enter keydown
+  }
+
+  // mousedown and keydown events:
   action.event.preventDefault();
   let index = parseInt(action.event.target.dataset.cellnum);
 
@@ -62,7 +93,8 @@ const reducer = (state, action) => {
     const jumbleData = {
       cellData: newState.cellData,
       selectedCell: index,
-      solved: newState.solved
+      solved: newState.solved,
+      availableLetters: newState.availableLetters
     }
     crosswordMethods.saveCrosswordData(jumbleData, action.puzzleID, action.tableID);
     return jumbleData; //end click (mousedown) or space/enter keydown
@@ -106,7 +138,8 @@ const reducer = (state, action) => {
     const jumbleData = {
       cellData: newState.cellData,
       selectedCell: newState.selectedCell,
-      solved: newState.solved
+      solved: newState.solved,
+      availableLetters: newState.availableLetters
     }
     crosswordMethods.saveCrosswordData(jumbleData, action.puzzleID, action.tableID);
     return jumbleData;
@@ -119,7 +152,7 @@ const reducer = (state, action) => {
 };
 
 const Jumble = (props) => {
-  const { puzzleID, tableID, initialCellData, questionText, altText, answerText } =
+  const { puzzleID, tableID, initialCellData, questionText, altText, answerText, availableLetters } =
     props;
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -129,8 +162,8 @@ const Jumble = (props) => {
     if (storedCrosswordData !== null) { //was there data saved to browser for this puzzle?
       dispatch({ type: "loadStateFromStorage", storedCrosswordData });
     } else
-      dispatch({ type: "setData", initialCellData, puzzleID, tableID });
-  }, [initialCellData, puzzleID, tableID]);
+      dispatch({ type: "setData", initialCellData, availableLetters, puzzleID, tableID });
+  }, [initialCellData, availableLetters, puzzleID, tableID]);
 
 
   const onKeyDownHandler = (event) => {
@@ -140,6 +173,10 @@ const Jumble = (props) => {
   const onMouseDownHandler = (event) => {
     dispatch({ type: "mousedown", event, puzzleID, tableID });
   };
+
+  const onRefreshHandler = (event) => {
+    dispatch({type: "shuffleAvailableLetters", puzzleID, tableID})
+  }
 
   return (
     <div className="jumble-outer-div">
@@ -177,22 +214,17 @@ const Jumble = (props) => {
 
       <div className="jumble-card-div">
         <Card className="dark available-jumble-letters">
-          <div className="available-jumble-letter">L</div>
-          <div className="available-jumble-letter">E</div>
-          <div className="available-jumble-letter">N</div>
-          <div className="available-jumble-letter">T</div>
-          <div className="available-jumble-letter">O</div>
-          <div className="available-jumble-letter">V</div>
-          <div className="available-jumble-letter">O</div>
-          <div className="available-jumble-letter">I</div>
-          <div className="available-jumble-letter">A</div>
+          {state.availableLetters.map((letter, i) => {
+            return <div key={i} className="available-jumble-letter">{letter.toUpperCase()}</div>
+          })}
           <img
             src={require("../../assets/icon-refresh.png").default}
             alt="refresh"
             className="jumble-refresh"
+            onClick={onRefreshHandler}
           />
         </Card>
-        
+
       </div>
     </div>
   );
