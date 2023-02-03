@@ -4,7 +4,7 @@ const PUZZLES = [
     id: "1",
     type: "crossword",
     answerText:    "reactarguepairsisletdeeds",
-    usedForJumble: "         x  x            ",
+    usedForJumble: "x        x  x    x       ",
     acrossClues: [
       { number: 1, text: "Respond.  Also a popular JavaScript framework" },
       { number: 6, text: "Debate" },

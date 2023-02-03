@@ -69,9 +69,12 @@ const markAvailableLettersAsUsed = (state) => {
   const cellDataLetters = state.cellData.filter(cell => (cell.type === "letter" && cell.cellValue !== "")); 
 
   cellDataLetters.forEach((cell) => {
-    const foundIndex = state.availableLetters.findLastIndex(letter => (letter.letter.toLowerCase() === cell.cellValue.toLowerCase()) && (!letter.usedInGuess));
-    if (foundIndex > -1) {
+    let foundIndex = state.availableLetters.findLastIndex(letter => (letter.letter.toLowerCase() === cell.cellValue.toLowerCase()) && (!letter.usedInGuess));
+    if (foundIndex > -1) { // was that letter in the available letter list? Mark it as used.
       state.availableLetters[foundIndex].usedInGuess = true;
+    } else { // otherwise, mark an underscore if there is an underscore available - these denote letters not found in the crossword yet
+      foundIndex = state.availableLetters.findLastIndex(letter => (letter.letter === "_") && (!letter.usedInGuess));
+      if (foundIndex > -1) state.availableLetters[foundIndex].usedInGuess = true;
     }
   })
 
