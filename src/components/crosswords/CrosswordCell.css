@@ -12,7 +12,8 @@
 }
 .cell input:focus {
   /* background-color: rgb(200, 200, 200); */
-  background-color: #5ca4a4;
+  /* background-color: #5ca4a4; */
+  background-color: #70bbbb;
 }
 .cell input:disabled {
   background-color: black;
@@ -32,13 +33,26 @@
 }
 
 .cellUsedForJumble {
-  background-color: lightgray;
+  /* background-color: lightgray; */
   /* border: 2px solid black !important; */
+  --notchSize: 20%;
+  
+  clip-path: 
+    polygon(
+      0% var(--notchSize), 
+      var(--notchSize) 0%, 
+      calc(100% - var(--notchSize)) 0%, 
+      100% var(--notchSize), 
+      100% calc(100% - var(--notchSize)), 
+      calc(100% - var(--notchSize)) 100%, 
+      var(--notchSize) 100%, 
+      0% calc(100% - var(--notchSize))
+    );
 }
 
-.cellHighlight.cellUsedForJumble {
+/* .cellHighlight.cellUsedForJumble {
   background-color: #70bbbb;
-}
+} */
 
 .cell {
   position: relative;
