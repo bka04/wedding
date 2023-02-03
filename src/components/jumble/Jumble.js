@@ -81,14 +81,14 @@ const reducer = (state, action) => {
     
     else if (keyCode === 8 || keyCode === 46) { //backspace/delete
       if (newState.cellData[index].cellValue === "") { // if already blank, get prev cell
-        index = getPrevLetterCellIndex(state, index, false);
+        index = getPrevLetterCellIndex(state, index, true);
       }
       newState.cellData[index].cellValue = "";
     } //end backspace/delete
 
     else if (keyCode === 32) { //space button
       newState.cellData[index].cellValue = ""; // clear out cell currently on
-      index = getNextLetterCellIndex(state, index, false); // go to next cell
+      index = getNextLetterCellIndex(state, index, true); // go to next cell
     }
 
     else if ((keyCode === 9 && !action.event.shiftKey) || keyCode === 39) { //tab or right arrow
