@@ -17,11 +17,20 @@ const clearCellDisplay = (cellData) => {
   })); 
 }
 
-const getNextLetterCellIndex = (state, index) => {
+const getNextLetterCellIndex = (state, index, wrap = true) => {
   const letterCells = state.cellData.filter(cell => cell.type === "letter");
   letterCells.sort((a, b) => a.index - b.index);
   const letterCellIndex = letterCells.findIndex(cell => cell.index === index);
-  return letterCells[letterCellIndex + 1] ? letterCells[letterCellIndex + 1].index : letterCells[0].index;
+  return letterCells[letterCellIndex + 1] ? letterCells[letterCellIndex + 1].index : 
+    wrap ? letterCells[0].index : letterCells[letterCellIndex].index;
+}
+
+const getPrevLetterCellIndex = (state, index, wrap = true) => {
+  const letterCells = state.cellData.filter(cell => cell.type === "letter");
+  letterCells.sort((a, b) => b.index - a.index);
+  const letterCellIndex = letterCells.findIndex(cell => cell.index === index);
+  return letterCells[letterCellIndex + 1] ? letterCells[letterCellIndex + 1].index : 
+  wrap ? letterCells[0].index : letterCells[letterCellIndex].index;
 }
 
 
@@ -58,77 +67,59 @@ const reducer = (state, action) => {
     crosswordMethods.saveCrosswordData(jumbleData, action.puzzleID, action.tableID);
     return jumbleData; //end click (mousedown) or space/enter keydown
 
-  } else if (action.type === "keydown") {
-    if (action.event.keyCode === 8 || action.event.keyCode === 46) { //backspace/delete
+  }
+  
+  if (action.type === "keydown") {
 
-      // clear cell and go to previous one
-      //crosswordMethods.saveCrosswordData(jumbleData, action.puzzleID, action.tableID)
-      //return 
+    const key = action.event.key;
+    const keyCode = action.event.keyCode;
+    
+    if (keyCode >= 65 && keyCode <= 90) { //letter
+      newState.cellData[index].cellValue = key;
+      index = getNextLetterCellIndex(newState, index);
+    } 
+    
+    else if (keyCode === 8 || keyCode === 46) { //backspace/delete
+      if (newState.cellData[index].cellValue === "") { // if already blank, get prev cell
+        index = getPrevLetterCellIndex(state, index, false);
+      }
+      newState.cellData[index].cellValue = "";
     } //end backspace/delete
 
-    if (action.event.keyCode === 32 && newState.cellData[index].cellValue !== "") { //space button
-      // clear cell but stay where you are
-      newState.cellData[index].cellValue = "";
-      const jumbleData = {
-        cellData: newState.cellData,
-        selectedCell: index,
-        solved: newState.solved
-      }
-      crosswordMethods.saveCrosswordData(jumbleData, action.puzzleID, action.tableID);
-      return jumbleData; //end click (mousedown) or space/enter keydown
-
+    else if (keyCode === 32) { //space button
+      newState.cellData[index].cellValue = ""; // clear out cell currently on
+      index = getNextLetterCellIndex(state, index, false); // go to next cell
     }
 
-    if (
-      (action.event.keyCode < 65 || action.event.keyCode > 90) && //not a letter
-      action.event.keyCode !== 9 && //not tab
-      (action.event.keyCode < 37 || action.event.keyCode > 40) //not left/up/right/down
-    ) {
-      //not a valid input; return without any changes
-      const jumbleData = {
-        cellData: newState.cellData,
-        selectedCell: newState.selectedCell,
-        solved: newState.solved
-      }
-      crosswordMethods.saveCrosswordData(jumbleData, action.puzzleID, action.tableID);
-      return jumbleData;
+    else if ((keyCode === 9 && !action.event.shiftKey) || keyCode === 39) { //tab or right arrow
+      index = getNextLetterCellIndex(state, index);
     }
 
-    //let solved = false;
-    if (
-      action.event.keyCode !== 9 && //not tab
-      (action.event.keyCode < 37 || action.event.keyCode > 40) //not left/up/right/down
-    ) {
-      //a letter was entered; set to keypress if the letter changed and is not locked; check if solved
-      if (!newState.cellData[index].locked && newState.cellData[index].cellValue !== action.event.key) {
-        newState.cellData[index].cellValue = action.event.key; //set entered letter
-        // newState.cellData[index].wrong = false; //clear out any 'wrong' line-through
-        // solved = crosswordMethods.checkGridAgainstAnswers(newState, action.answers) //has grid been solved?
-        // if (solved) { //if so, lock all letters in grid and alert user of great success
-        //   newState = crosswordMethods.handleSolvedGrid(newState);
-        // }
-      }
+    else if ((keyCode === 9 && action.event.shiftKey) || keyCode === 37) { //shift-tab or left arrow
+      index = getPrevLetterCellIndex(state, index);
     }
 
-    index = getNextLetterCellIndex(newState, index);
-    newState.cellData = clearCellDisplay(newState.cellData);
-    newState.cellData[index].focus = true;
+    // for all keydowns, update focus, save and return new state
+    newState.cellData = clearCellDisplay(newState.cellData); // remove current focus
+    newState.cellData[index].focus = true; // set new focus
 
     const jumbleData = {
       cellData: newState.cellData,
-      selectedCell: index,
+      selectedCell: newState.selectedCell,
       solved: newState.solved
     }
     crosswordMethods.saveCrosswordData(jumbleData, action.puzzleID, action.tableID);
     return jumbleData;
-  } else {
+
+  //end action.type === "keydown"
+  } else { 
     throw new Error();
   }
 
 };
 
 const Jumble = (props) => {
-  const { puzzleID, tableID, initialCellData, questionText, altText, answerBlanks, answerText } =
+  const { puzzleID, tableID, initialCellData, questionText, altText, answerText } =
     props;
   const [state, dispatch] = useReducer(reducer, initialState);
 

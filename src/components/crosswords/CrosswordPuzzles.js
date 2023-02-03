@@ -70,7 +70,6 @@ const PUZZLES = [
     questionText:
       "The bride misplaced part of her wedding outfit. She searched everywhere, but it was",
     altText: "A bride is searching for something but has to give up.",
-    answerBlanks: "__ __ _-____",
     answerText: "to no a-veil",
   },
   {

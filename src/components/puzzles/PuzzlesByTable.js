@@ -24,7 +24,6 @@ const PuzzlesByTable = (props) => {
         initialCellData={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).cellData}
         questionText={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).questionText}
         altText={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).altText}
-        answerBlanks={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).answerBlanks}
         answerText={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).answerText}
       /> : null}
     </Fragment>
