@@ -34,9 +34,14 @@
 }
 
 .available-jumble-letter {
-  /* color: white; */
   margin: 0px 5px;
   font-size: larger;
+}
+
+.available-jumble-used {
+  /* color: #bdc1c6; */
+  color: #595a5c;
+  /* text-decoration: #595a5c line-through; */
 }
 
 .answer-other-char {

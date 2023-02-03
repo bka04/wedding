@@ -51,6 +51,25 @@ const getPrevLetterCellIndex = (state, index, wrap = true) => {
   wrap ? letterCells[0].index : letterCells[letterCellIndex].index;
 }
 
+const markAvailableLettersAsUsed = (state) => {
+  // clear out usedInGuess so we can set it again
+  state.availableLetters = state.availableLetters.map((letterData) => ({
+    ...letterData,
+    usedInGuess: false
+  })); 
+
+  // get letters entered into cells
+  const cellDataLetters = state.cellData.filter(cell => (cell.type === "letter" && cell.cellValue !== "")); 
+
+  cellDataLetters.forEach((cell) => {
+    const foundIndex = state.availableLetters.findIndex(letter => (letter.letter.toLowerCase() === cell.cellValue.toLowerCase()) && (!letter.usedInGuess));
+    if (foundIndex > -1) {
+      state.availableLetters[foundIndex].usedInGuess = true;
+    }
+  })
+
+  return state;
+}
 
 const reducer = (state, action) => {
 
@@ -58,11 +77,17 @@ const reducer = (state, action) => {
     return action.storedCrosswordData;
   }
   if (action.type === "setData") {
+    const availableLetters = action.availableLetters.map((letter) => {
+      return {
+        letter: letter,
+        usedInGuess: false
+      }
+    })
     return {
       cellData: action.initialCellData,
       selectedCell: 0,
       solved: false,
-      availableLetters: shuffle(action.availableLetters)
+      availableLetters: shuffle(availableLetters)
     };
   }
 
@@ -131,9 +156,10 @@ const reducer = (state, action) => {
       index = getPrevLetterCellIndex(state, index);
     }
 
-    // for all keydowns, update focus, save and return new state
+    // for all keydowns, update focus, refigure used available letters, save, and return new state
     newState.cellData = clearCellDisplay(newState.cellData); // remove current focus
     newState.cellData[index].focus = true; // set new focus
+    newState = markAvailableLettersAsUsed(newState);
 
     const jumbleData = {
       cellData: newState.cellData,
@@ -215,7 +241,7 @@ const Jumble = (props) => {
       <div className="jumble-card-div">
         <Card className="dark available-jumble-letters">
           {state.availableLetters.map((letter, i) => {
-            return <div key={i} className="available-jumble-letter">{letter.toUpperCase()}</div>
+            return <div key={i} className={`available-jumble-letter${letter.usedInGuess ? " available-jumble-used" : ""}`}>{letter.letter.toUpperCase()}</div>
           })}
           <img
             src={require("../../assets/icon-refresh.png").default}
