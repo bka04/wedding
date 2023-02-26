@@ -58,7 +58,7 @@ const PUZZLES = [
     id: "1",
     type: "crossword",
     answerText:    "wheathelloiliadtetraenemy",
-    usedForJumble: "   x     x x   x   x     ",
+    usedForJumble: "   x     x x   x   x x   ",
     acrossClues: [
       { number: 1, text: "Celiac's nemesis" },
       { number: 6, text: "Adele's lyric, '___, can you hear me?'" },
@@ -79,7 +79,7 @@ const PUZZLES = [
     id: "2",
     type: "crossword",
     answerText:    " idosscarphingeincanagent",
-    usedForJumble: " x      x   x    x  x   x",
+    usedForJumble: " x      x   x    xx x   x",
     acrossClues: [
       { number: 1, text: "Wedding vows" },
       { number: 5, text: "Very steep slope" },
