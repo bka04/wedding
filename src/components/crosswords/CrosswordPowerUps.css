@@ -19,6 +19,7 @@
 
 .crosswordPowerUp p {
   font-size: 0.875em;
+  color: #bdc1c6;
 }
 
 .crosswordPowerUp:hover {
