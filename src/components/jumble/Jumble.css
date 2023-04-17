@@ -12,10 +12,11 @@
 .answer-blanks {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .answer-word-break {
-  width: 30px;
+  min-width: 30px;
   height: 40px;
 }
 
