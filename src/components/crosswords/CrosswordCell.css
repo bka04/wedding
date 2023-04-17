@@ -21,7 +21,7 @@
   /* background-color: #5ca4a4; */
   background-color: #70bbbb;
 }
-.cell input:disabled {
+.cellDisabled {
   background-color: black;
 }
 

@@ -161,7 +161,7 @@ const reducer = (state, action) => {
       newState.across = !newState.across;
     }
 
-    document.activeElement.blur(); //remove focus to fix mobile issue
+    // document.activeElement.blur(); //remove focus to fix mobile issue
     newState.cellData = crosswordMethods.clearCellDisplay(newState.cellData);
     newState.cellData[index].focus = true;
     newState.cellData = crosswordMethods.updateHighlighting(newState, index);
