@@ -105,6 +105,58 @@ const PUZZLES = [
     answerText: "atlar-cation",
     answerTextLetters: "altarcation"
   },
+  {
+    table: "3",
+    id: "1",
+    type: "crossword",
+    answerText:    "wallsallowstavetamederase",
+    usedForJumble: "          x        x x   ",
+    acrossClues: [
+      { number: 1, text: "Holly Humberstone song 'The Walls Are Way Too Thin'" },
+      { number: 6, text: "Let happen" },
+      { number: 7, text: "To keep away (with off)" },
+      { number: 8, text: "Domesticated" },
+      { number: 9, text: "Remove" },
+    ],
+    downClues: [
+      { number: 1, text: "Trash" },
+      { number: 2, text: "Where Erin and Brent will start their married life at" },
+      { number: 3, text: "Alpaca cousin" },
+      { number: 4, text: "Adores" },
+      { number: 5, text: "Norwegian neighbor" },
+    ],
+  },
+  {
+    table: "3",
+    id: "2",
+    type: "crossword",
+    answerText:    "limbsadorecaromkhakisoles",
+    usedForJumble: "    x x          x     x ",
+    acrossClues: [
+      { number: 1, text: "Flailing body parts" },
+      { number: 5, text: "Erin and Brent ___ each other" },
+      { number: 6, text: "Strike and rebound" },
+      { number: 7, text: "Common dress pant color" },
+      { number: 8, text: "Feet bottoms" },
+    ],
+    downClues: [
+      { number: 1, text: "Does not have" },
+      { number: 2, text: "What Iowa sometimes gets mistaken with" },
+      { number: 3, text: "Ethical" },
+      { number: 4, text: "Very not rich" },
+      { number: 5, text: "Finals precursor" },
+    ],
+  },
+  {
+    table: "3",
+    id: "3",
+    type: "jumble",
+    questionText:
+      "When the budget-conscious bride scheduled to pick up a secondhand outfit, she asked the Marketplace lister: Can you give me your",
+    altText: "A woman on the phone looks at a free dress online.",
+    answerText: "ad-dress",
+    answerTextLetters: "address"
+  },
 ];
 
 class JumbleCellData {
