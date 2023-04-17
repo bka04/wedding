@@ -366,9 +366,6 @@ const Crossword = (props) => {
       {/* <Card className='dark'>
         <CrosswordStatus />
       </Card> */}
-      <CrosswordPowerUps 
-        onClick={powerUpOnClickHandler}
-      />
       {/* {state.solved && !props.isThisLastPuzzle ? <div className='dark nextPuzzleDiv'><Button className="nextPuzzleBtn" onClick={nextPuzzleHandler}>
             Next Puzzle</Button></div> : null
       } */}
@@ -405,6 +402,9 @@ const Crossword = (props) => {
           />
         </Card>
       </div>
+      <CrosswordPowerUps 
+          onClick={powerUpOnClickHandler}
+        />
       <div className='crosswordFooter'>
         <Button className="resetBtn" onClick={resetGrid}>
           Reset Current Puzzle
