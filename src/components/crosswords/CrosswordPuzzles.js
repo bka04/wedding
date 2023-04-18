@@ -53,6 +53,7 @@ const PUZZLES = [
     answerText: "to no a-veil",
     answerTextLetters: "tonoaveil"
   },
+  
   {
     table: "2",
     id: "1",
@@ -102,9 +103,10 @@ const PUZZLES = [
     questionText:
       "What the bride and groom got into at their destination wedding: An",
     altText: "A bride and groom are about to be married on a beach and are arguing.",
-    answerText: "atlar-cation",
-    answerTextLetters: "altarcation"
+    answerText: "an atlar-cation",
+    answerTextLetters: "analtarcation"
   },
+
   {
     table: "3",
     id: "1",
@@ -156,6 +158,59 @@ const PUZZLES = [
     altText: "A woman on the phone looks at a free dress online.",
     answerText: "ad-dress",
     answerTextLetters: "address"
+  },
+
+  {
+    table: "4",
+    id: "1",
+    type: "crossword",
+    answerText:    "evansbelowbrideeggeddense",
+    usedForJumble: "       xxx         xx    ",
+    acrossClues: [
+      { number: 1, text: "Captain America actor Chris" },
+      { number: 6, text: "Discount store five ___" },
+      { number: 7, text: "Erin on April 8, 2023" },
+      { number: 8, text: "Provoked (with on)" },
+      { number: 9, text: "Ignorant or foolish" },
+    ],
+    downClues: [
+      { number: 1, text: "Partner of flowed" },
+      { number: 2, text: "Technology news site The ___" },
+      { number: 3, text: "Line up" },
+      { number: 4, text: "Intersecting points" },
+      { number: 5, text: "Finn's neighbor" },
+    ],
+  },
+  {
+    table: "4",
+    id: "2",
+    type: "crossword",
+    answerText:    "  nyechaosremusarenapodgy",
+    usedForJumble: "        x x   x  x      x",
+    acrossClues: [
+      { number: 1, text: "Holiday that saw Erin and Brent's first date, abbr." },
+      { number: 4, text: "Utter disorder" },
+      { number: 6, text: "Harry Potter character Lupin" },
+      { number: 7, text: "Wells Fargo ___" },
+      { number: 8, text: "Chubby" },
+    ],
+    downClues: [
+      { number: 1, text: "A Boy ___ Charlie Brown" },
+      { number: 2, text: "When the good die" },
+      { number: 3, text: "Short written piece" },
+      { number: 4, text: "Stuff, slangily" },
+      { number: 5, text: "Taylor Swift song Anti-___" },
+    ],
+  },
+  {
+    table: "4",
+    id: "3",
+    type: "jumble",
+    questionText:
+      "When the salivating Saint Bernard married a slobbery boxer, they happily became",
+    altText: "Two slobbery dogs just got married.",
+    answerText: "drooly-weds",
+    answerTextLetters: "droolyweds"
   },
 ];
 
