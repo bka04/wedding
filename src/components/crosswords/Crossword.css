@@ -5,6 +5,19 @@
   align-items: flex-start;
 }
 
+.crosswordInstructions {
+  display: flex;
+  justify-content: center;
+  flex-direction: row; /* change this to row instead of 'column' */
+  flex-wrap: wrap; /* added flex-wrap */
+}
+
+.crosswordInstructions p {
+  font-size: small;
+  margin: 0;
+  /* color: #bdc1c6; */
+}
+
 .crosswordCluesCard {
   flex: 0 1 500px;
 }

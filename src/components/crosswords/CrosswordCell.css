@@ -22,7 +22,7 @@
   background-color: #70bbbb;
 }
 .cell .cellDisabled {
-  background-color: black;
+  background-color: black !important;
 }
 
 .cellHighlight {

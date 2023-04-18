@@ -251,7 +251,7 @@ const reducer = (state, action) => {
         index = crosswordMethods.getNextCell(newState, index, "down");
         break;
       case 9: //tab
-      case 32: //enter
+      case 13: //enter
         if (action.event.shiftKey) {
           index = crosswordMethods.getPrevWord(newState, index)
         } else {
@@ -371,6 +371,10 @@ const Crossword = (props) => {
       {/* {state.solved && !props.isThisLastPuzzle ? <div className='dark nextPuzzleDiv'><Button className="nextPuzzleBtn" onClick={nextPuzzleHandler}>
             Next Puzzle</Button></div> : null
       } */}
+      <div className="crosswordInstructions">
+        <p><strong>Spacebar:</strong> Switch across/down</p>
+        <p>&nbsp;&nbsp;&nbsp; <strong>Return:</strong> Next word</p>
+      </div>
       <div className={`crosswordContent ${state.cols > 5 ? 'mediumGrid' : 'smallGrid'}`}>
         <Card className='dark crosswordCluesCard'>
           <CrosswordClues 
