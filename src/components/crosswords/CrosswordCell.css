@@ -23,6 +23,8 @@
 }
 input.cellDisabled {
   background-color: black;
+  position: relative;
+  z-index: 1;
 }
 
 .cellHighlight {
