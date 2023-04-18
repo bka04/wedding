@@ -265,6 +265,59 @@ const PUZZLES = [
     answerText: "too much soot",
     answerTextLetters: "toomuchsoot"
   },
+
+  {
+    table: "6",
+    id: "1",
+    type: "crossword",
+    answerText:    "craveoiledusingrevuetrees",
+    usedForJumble: "   x     x x       x  xx ",
+    acrossClues: [
+      { number: 1, text: "Yearn for" },
+      { number: 6, text: "Ready state for a cooking pan" },
+      { number: 7, text: "Utilizing" },
+      { number: 8, text: "Light theatrical entertainment with a series of short sketches, songs, and dances" },
+      { number: 9, text: "Carbon dioxide removers" },
+    ],
+    downClues: [
+      { number: 1, text: "Date, in times gone by" },
+      { number: 2, text: "Stage platform" },
+      { number: 3, text: "Not dead" },
+      { number: 4, text: "Conrad Mansion, for example" },
+      { number: 5, text: "Jigsaw puzzle starters" },
+    ],
+  },
+  {
+    table: "6",
+    id: "2",
+    type: "crossword",
+    answerText:    "smashpolkaactinsharkmarts",
+    usedForJumble: "         x  x   xx     x ",
+    acrossClues: [
+      { number: 1, text: "Super ___ Bros. Melee" },
+      { number: 6, text: "___ dot, or a type of dance" },
+      { number: 7, text: "Play a play part" },
+      { number: 8, text: "Erin got Brent a pink onesie of this animal" },
+      { number: 9, text: "K-, Wal, and Kwik-E-" },
+    ],
+    downClues: [
+      { number: 1, text: "Back seize" },
+      { number: 2, text: "Coffee-chocolate combo" },
+      { number: 3, text: "Vow locale" },
+      { number: 4, text: "Christmas tree stand covering" },
+      { number: 5, text: "Actor Tom" },
+    ],
+  },
+  {
+    table: "6",
+    id: "3",
+    type: "jumble",
+    questionText:
+      "When the wedding guest showed up with an old, dried fruit, he explained: 'I was told to",
+    altText: "A guest shows up to a wedding with an odd gift",
+    answerText: "save the date",
+    answerTextLetters: "savethedate"
+  },
 ];
 
 class JumbleCellData {
