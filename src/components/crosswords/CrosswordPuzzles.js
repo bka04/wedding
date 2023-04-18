@@ -136,10 +136,10 @@ const PUZZLES = [
     usedForJumble: "    x x          x     x ",
     acrossClues: [
       { number: 1, text: "Flailing body parts" },
-      { number: 5, text: "Erin and Brent ___ each other" },
-      { number: 6, text: "Strike and rebound" },
-      { number: 7, text: "Common dress pant color" },
-      { number: 8, text: "Feet bottoms" },
+      { number: 6, text: "Erin and Brent ___ each other" },
+      { number: 7, text: "Strike and rebound" },
+      { number: 8, text: "Common dress pant color" },
+      { number: 9, text: "Feet bottoms" },
     ],
     downClues: [
       { number: 1, text: "Does not have" },
