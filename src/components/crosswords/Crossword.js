@@ -155,7 +155,7 @@ const reducer = (state, action) => {
   if (
     action.type === "mousedown" ||
     (action.type === "keydown" &&
-      (action.event.keyCode === 13 || action.event.keyCode === 32)) //space/enter
+      action.event.keyCode === 32) //space
   ) {
     if (cellNum === newState.selectedCell) {
       newState.across = !newState.across;
@@ -174,7 +174,7 @@ const reducer = (state, action) => {
       solved: newState.solved
     };
     crosswordMethods.saveCrosswordData(crosswordData, action.puzzleID, action.tableID)
-    return crosswordData; //end click (mousedown) or space/enter keydown
+    return crosswordData; //end click (mousedown) or space keydown
   } else if (action.type === "keydown") {
     if (action.event.keyCode === 8 || action.event.keyCode === 46) {
       //backspace/delete
@@ -204,7 +204,7 @@ const reducer = (state, action) => {
 
     if (
       (action.event.keyCode < 65 || action.event.keyCode > 90) && //not a letter
-      action.event.keyCode !== 9 && //not tab
+      action.event.keyCode !== 9 && action.event.keyCode !== 13 &&  //not tab/enter
       (action.event.keyCode < 37 || action.event.keyCode > 40) //not left/up/right/down
     ) {
       //not a valid input; return without any changes
@@ -221,7 +221,7 @@ const reducer = (state, action) => {
 
     let solved = false;
     if (
-      action.event.keyCode !== 9 && //not tab
+      action.event.keyCode !== 9 && action.event.keyCode !== 13 && //not tab/enter
       (action.event.keyCode < 37 || action.event.keyCode > 40) //not left/up/right/down
     ) {
       //a letter was entered; set to keypress if the letter changed and is not locked; check if solved
@@ -251,6 +251,7 @@ const reducer = (state, action) => {
         index = crosswordMethods.getNextCell(newState, index, "down");
         break;
       case 9: //tab
+      case 32: //enter
         if (action.event.shiftKey) {
           index = crosswordMethods.getPrevWord(newState, index)
         } else {
