@@ -1,3 +1,9 @@
+@media (max-width: 1000px) {
+  .helpBtn {
+    display: none;
+  }
+}
+
 .crosswordPowerUps {
   display: flex;
   justify-content: space-around;
