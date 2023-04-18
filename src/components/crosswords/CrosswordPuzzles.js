@@ -53,7 +53,7 @@ const PUZZLES = [
     answerText: "to no a-veil",
     answerTextLetters: "tonoaveil"
   },
-  
+
   {
     table: "2",
     id: "1",
@@ -211,6 +211,59 @@ const PUZZLES = [
     altText: "Two slobbery dogs just got married.",
     answerText: "drooly-weds",
     answerTextLetters: "droolyweds"
+  },
+
+  {
+    table: "5",
+    id: "1",
+    type: "crossword",
+    answerText:    "leastamourmariapittsslash",
+    usedForJumble: "    x  xx         x x   x",
+    acrossClues: [
+      { number: 1, text: "'It's the ___ I can do''" },
+      { number: 6, text: "French love" },
+      { number: 7, text: "Main character in Sound of Music, the first movie Erin and Brent watched together" },
+      { number: 8, text: "Brad and Doug" },
+      { number: 9, text: "Cut drastically" },
+    ],
+    downClues: [
+      { number: 1, text: "Light givers" },
+      { number: 2, text: "Spam medium" },
+      { number: 3, text: "Largest artery in the body" },
+      { number: 4, text: "Decks have four of these" },
+      { number: 5, text: "Garbage" },
+    ],
+  },
+  {
+    table: "5",
+    id: "2",
+    type: "crossword",
+    answerText:    "setupcloneroadsupsetmetro",
+    usedForJumble: "     x x   x        x   x",
+    acrossClues: [
+      { number: 1, text: "Like a blind date" },
+      { number: 6, text: "Lab-generated copy" },
+      { number: 7, text: "All ___ lead to Rome" },
+      { number: 8, text: "Underdog's victory" },
+      { number: 9, text: "Prefix for nome" },
+    ],
+    downClues: [
+      { number: 1, text: "Rugby restart" },
+      { number: 2, text: "Run away to marry" },
+      { number: 3, text: "Wedding clink follower" },
+      { number: 4, text: "Water ___ the bridge" },
+      { number: 5, text: "Basil-based sauce" },
+    ],
+  },
+  {
+    table: "5",
+    id: "3",
+    type: "jumble",
+    questionText:
+      "When Santa married Mrs. Claus on Christmas Day, he wore",
+    altText: "Santa wears a big, dirty suit",
+    answerText: "too much soot",
+    answerTextLetters: "toomuchsoot"
   },
 ];
 
