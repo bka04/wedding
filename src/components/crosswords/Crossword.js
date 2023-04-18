@@ -371,11 +371,11 @@ const Crossword = (props) => {
       {/* {state.solved && !props.isThisLastPuzzle ? <div className='dark nextPuzzleDiv'><Button className="nextPuzzleBtn" onClick={nextPuzzleHandler}>
             Next Puzzle</Button></div> : null
       } */}
-      <div className="crosswordInstructions">
-        <p><strong>Spacebar:</strong> Switch across/down</p>
-        <p>&nbsp;&nbsp;&nbsp; <strong>Return:</strong> Next word</p>
-      </div>
       <div className={`crosswordContent ${state.cols > 5 ? 'mediumGrid' : 'smallGrid'}`}>
+        <div className="crosswordInstructions">
+          <p><strong>Spacebar:</strong> Switch across/down</p>
+          <p>&nbsp;&nbsp;&nbsp; <strong>Return:</strong> Next word</p>
+        </div>
         <Card className='dark crosswordCluesCard'>
           <CrosswordClues 
             onClick={clueOnClickHandler}

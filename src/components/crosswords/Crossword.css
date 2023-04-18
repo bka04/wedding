@@ -26,6 +26,11 @@
   flex: 0 1;
 }
 
+.crosswordInstructions {
+  width: 100%;
+  display: none;
+}
+
 @media (max-width: 1450px) {
   .crosswordCluesCard {
     flex: 0 1 400px;
@@ -42,23 +47,21 @@
   .crosswordGridCard.mediumGrid {
     order: -1;
   }
-}
-
-@media (max-width: 800px) {
   .crosswordContent.mediumGrid {
     flex-wrap: wrap;
   }
 }
 
+
 @media (max-width: 650px) {
   .crosswordGridCard.smallGrid {
     order: -1;
   }
-}
-
-@media (max-width: 650px) {
   .crosswordContent.smallGrid {
     flex-wrap: wrap;
+  }
+  .crosswordInstructions {
+    display: flex;
   }
 }
 
