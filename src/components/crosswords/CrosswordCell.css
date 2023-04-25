@@ -23,6 +23,8 @@
 }
 input.cellDisabled {
   background-color: black;
+  /* position: relative;
+  z-index: 1; */
 }
 
 .cellHighlight {
@@ -62,7 +64,7 @@ input.cellDisabled {
 
 .cell {
   position: relative;
-  background-color: fuchsia;
+  /* background-color: fuchsia; */
 }
 
 .questionNumber {
