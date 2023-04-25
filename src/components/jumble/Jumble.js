@@ -232,7 +232,7 @@ const Jumble = (props) => {
   return (
     <div className="jumble-outer-div">
       <img
-        src={require("../../assets/crosswordcat.jpg").default}
+        src={require(`../../assets/Jumble${tableID}.png`).default}
         alt={altText}
         className="jumble-img"
       />
