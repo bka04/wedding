@@ -101,7 +101,7 @@ const PUZZLES = [
     id: "3",
     type: "jumble",
     questionText:
-      "What the bride and groom got into at their destination wedding: An",
+      "What the bride and groom got into at their destination wedding:",
     altText: "A bride and groom are about to be married on a beach and are arguing.",
     answerText: "an atlar-cation",
     answerTextLetters: "analtarcation"
@@ -114,7 +114,7 @@ const PUZZLES = [
     answerText:    "wallsallowstavetamederase",
     usedForJumble: "          x        x x   ",
     acrossClues: [
-      { number: 1, text: "Holly Humberstone song 'The Walls Are Way Too Thin'" },
+      { number: 1, text: "Holly Humberstone song 'The ___ Are Way Too Thin'" },
       { number: 6, text: "Let happen" },
       { number: 7, text: "To keep away (with off)" },
       { number: 8, text: "Domesticated" },
