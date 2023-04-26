@@ -45,13 +45,25 @@
   /* text-decoration: #595a5c line-through; */
 }
 
-.answer-other-char {
+.answer-other-char, .answer-quote {
   width: 10px;
   height: 40px;
   font-size: larger;
   font-weight: bolder;
-  margin-top: auto;
   color: #88dfdf;
+}
+
+.answer-other-char {
+  margin-top: auto;
+}
+
+.answer-quote {
+  margin: 0px;
+}
+
+.answer-line-break {
+  flex-basis: 100%;
+  height: 0;
 }
 
 .jumble-refresh {

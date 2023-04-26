@@ -50,7 +50,7 @@ const PUZZLES = [
     questionText:
       "The bride misplaced part of her wedding outfit. She searched everywhere, but it was",
     altText: "A bride is searching for something but has to give up.",
-    answerText: "to no a-veil",
+    answerText: "to no%\"a-veil\"",
     answerTextLetters: "tonoaveil"
   },
 
@@ -103,7 +103,7 @@ const PUZZLES = [
     questionText:
       "What the bride and groom got into at their destination wedding:",
     altText: "A bride and groom are about to be married on a beach and are arguing.",
-    answerText: "an atlar-cation",
+    answerText: "an%\"atlar-%cation\"",
     answerTextLetters: "analtarcation"
   },
 
@@ -156,7 +156,7 @@ const PUZZLES = [
     questionText:
       "When the budget-conscious bride scheduled to pick up a secondhand outfit, she asked the Marketplace lister: Can you give me your",
     altText: "A woman on the phone looks at a free dress online.",
-    answerText: "ad-dress",
+    answerText: "\"ad-%dress\"",
     answerTextLetters: "address"
   },
 
@@ -209,7 +209,7 @@ const PUZZLES = [
     questionText:
       "When the salivating Saint Bernard married a slobbery boxer, they happily became",
     altText: "Two slobbery dogs just got married.",
-    answerText: "drooly-weds",
+    answerText: "\"drooly-%weds\"",
     answerTextLetters: "droolyweds"
   },
 
@@ -262,7 +262,7 @@ const PUZZLES = [
     questionText:
       "When Santa married Mrs. Claus on Christmas Day, he wore",
     altText: "Santa wears a big, dirty suit",
-    answerText: "too much soot",
+    answerText: "too%much%soot",
     answerTextLetters: "toomuchsoot"
   },
 
@@ -315,7 +315,7 @@ const PUZZLES = [
     questionText:
       "When the wedding guest showed up with an old, dried fruit, he explained: 'I was told to",
     altText: "A guest shows up to a wedding with an odd gift",
-    answerText: "save the date",
+    answerText: "save%the%date",
     answerTextLetters: "savethedate"
   },
 ];
@@ -385,6 +385,10 @@ for (let i = 0; i < PUZZLES.length; i++) {
         cellData.type = "letter";
       } else if (letter === " ") {
         cellData.type = "space";
+      } else if (letter === "\"") {
+        cellData.type = "quote"
+      } else if (letter === "%") {
+        cellData.type = "line-break"
       } else {
         cellData.type = "other";
         cellData.cellValue = letter;

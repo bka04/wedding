@@ -256,6 +256,10 @@ const Jumble = (props) => {
               />
             case "space":
               return <div key={i} className="answer-word-break"></div>
+            case "quote":
+              return <div key={i} className="answer-quote">"</div>
+            case "line-break":
+              return <div key={i} className="answer-line-break"></div>
             default:
               return <div key={i} className="answer-other-char">{cell.cellValue}</div>
           }
