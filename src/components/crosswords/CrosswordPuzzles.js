@@ -318,6 +318,59 @@ const PUZZLES = [
     answerText: "save%the%date",
     answerTextLetters: "savethedate"
   },
+
+  {
+    table: "7",
+    id: "1",
+    type: "crossword",
+    answerText:    "gamesidealdodgedriedyears",
+    usedForJumble: "   x  x    x x x   x     ",
+    acrossClues: [
+      { number: 1, text: "Word following word or board" },
+      { number: 6, text: "Most suitable" },
+      { number: 7, text: "Ford competitor" },
+      { number: 8, text: "Best cranberry form, according to Brent" },
+      { number: 9, text: "Decade components" },
+    ],
+    downClues: [
+      { number: 1, text: "'Giddy up!' (Horse command)" },
+      { number: 2, text: "Love" },
+      { number: 3, text: "Word with social or center" },
+      { number: 4, text: "Enthusiastic" },
+      { number: 5, text: "Toboggans" },
+    ],
+  },
+  {
+    table: "7",
+    id: "2",
+    type: "crossword",
+    answerText:    "wavesalivespreethunkeast ",
+    usedForJumble: "x     xx         xx      ",
+    acrossClues: [
+      { number: 1, text: "Non-verbal greetings" },
+      { number: 6, text: "___ and well" },
+      { number: 7, text: "Shopping extravaganza" },
+      { number: 8, text: "Dull, heavy sound" },
+      { number: 9, text: "___ India Company" },
+    ],
+    downClues: [
+      { number: 1, text: "Garbage" },
+      { number: 2, text: "First Greek letter" },
+      { number: 3, text: "Infectious code" },
+      { number: 4, text: "Concert or sporting game" },
+      { number: 5, text: "Look for" },
+    ],
+  },
+  {
+    table: "7",
+    id: "3",
+    type: "jumble",
+    questionText:
+      "When a gong struck as the bride and groom married, a noise-sensitive attendee called it an especially",
+    altText: "A guest shows up to a wedding with an odd gift",
+    answerText: "loud%\"wed-%ding\"",
+    answerTextLetters: "loudwedding"
+  },
 ];
 
 class JumbleCellData {
