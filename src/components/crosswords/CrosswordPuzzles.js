@@ -367,9 +367,62 @@ const PUZZLES = [
     type: "jumble",
     questionText:
       "When a gong struck as the bride and groom married, a noise-sensitive attendee called it an especially",
-    altText: "A guest shows up to a wedding with an odd gift",
+    altText: "A gong is struck as the bride and groom kiss",
     answerText: "loud%\"wed-%ding\"",
     answerTextLetters: "loudwedding"
+  },
+
+  {
+    table: "8",
+    id: "1",
+    type: "crossword",
+    answerText:    "cleanradioangstscaleheres",
+    usedForJumble: "  x           x     x   x",
+    acrossClues: [
+      { number: 1, text: "Mr. ___ Magic Eraser" },
+      { number: 6, text: "Type of star that video killed" },
+      { number: 7, text: "Teens are full of it" },
+      { number: 8, text: "Reptilian armor" },
+      { number: 9, text: "Toast starter" },
+    ],
+    downClues: [
+      { number: 1, text: "Collide violently" },
+      { number: 2, text: "Jousting weapon" },
+      { number: 3, text: "___ Allan Poe" },
+      { number: 4, text: "Wedding walkway" },
+      { number: 5, text: "These can be high, sour, or sticky" },
+    ],
+  },
+  {
+    table: "8",
+    id: "2",
+    type: "crossword",
+    answerText:    "saladimagelibrakneelsoles",
+    usedForJumble: "      x x            x   ",
+    acrossClues: [
+      { number: 1, text: "'The food that my food eats,' according to Ron Swanson" },
+      { number: 6, text: "Spitting ___ of" },
+      { number: 7, text: "Astrological scales" },
+      { number: 8, text: "Assume the proposal position" },
+      { number: 9, text: "Feet bottoms" },
+    ],
+    downClues: [
+      { number: 1, text: "Erin's aerial apparatus" },
+      { number: 2, text: "___ acid" },
+      { number: 3, text: "Record company" },
+      { number: 4, text: "Disagreement resolution" },
+      { number: 5, text: "Bargains" },
+    ],
+  },
+  {
+    table: "8",
+    id: "3",
+    type: "jumble",
+    questionText:
+      "When the groom was surprised to see his bride dressed up as a zombie on their Halloween wedding, he said, \"I'm just glad you didn't",
+    altText: "A bride is dressed up as a zombie",
+    answerText: "ghost%me!\"",
+    answerTextLetters: "ghostme"
   },
 ];
 
