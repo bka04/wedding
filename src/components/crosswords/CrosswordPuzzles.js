@@ -424,6 +424,59 @@ const PUZZLES = [
     answerText: "ghost%me!\"",
     answerTextLetters: "ghostme"
   },
+
+  {
+    table: "9",
+    id: "1",
+    type: "crossword",
+    answerText:    "clinkrunonunduemainebrass",
+    usedForJumble: "x           x    x x     ",
+    acrossClues: [
+      { number: 1, text: "Wedding reception sound" },
+      { number: 6, text: "Sentence no-no" },
+      { number: 7, text: "Not warranted" },
+      { number: 8, text: "Erin and Brent's 2022 hiking vacation state" },
+      { number: 9, text: "Word before monkey or knuckles" },
+    ],
+    downClues: [
+      { number: 1, text: "Cookie remnant" },
+      { number: 2, text: "Eclipse type" },
+      { number: 3, text: "Country west of Bangladesh" },
+      { number: 4, text: "People, places, or things" },
+      { number: 5, text: "The bee's ___" },
+    ],
+  },
+  {
+    table: "9",
+    id: "2",
+    type: "crossword",
+    answerText:    "heartummahnaivetiger lone",
+    usedForJumble: "    x x        x      x  ",
+    acrossClues: [
+      { number: 1, text: "Body part associated with love" },
+      { number: 6, text: "Muslim community throughout the world" },
+      { number: 7, text: "Innocent" },
+      { number: 8, text: "Popular king in 2020" },
+      { number: 9, text: "Word before wolf or Ranger" },
+    ],
+    downClues: [
+      { number: 1, text: "Scavenger ___, which led up to Erin proposing to Brent" },
+      { number: 2, text: "Often filled with junk" },
+      { number: 3, text: "Friend in Guadalajara" },
+      { number: 4, text: "Baltimore football player" },
+      { number: 5, text: "Not to be confused with their or they're" },
+    ],
+  },
+  {
+    table: "9",
+    id: "3",
+    type: "jumble",
+    questionText:
+      "When the newlyweds recieved matching potholders, they were truly",
+    altText: "A couple wears matching potholders",
+    answerText: "co-%mitted",
+    answerTextLetters: "comitted"
+  },
 ];
 
 class JumbleCellData {
