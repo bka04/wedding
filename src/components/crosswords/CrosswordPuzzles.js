@@ -474,8 +474,61 @@ const PUZZLES = [
     questionText:
       "When the newlyweds recieved matching potholders, they were truly",
     altText: "A couple wears matching potholders",
-    answerText: "co-%mitted",
+    answerText: "\"co-%mitted\"",
     answerTextLetters: "comitted"
+  },
+
+  {
+    table: "10",
+    id: "1",
+    type: "crossword",
+    answerText:    "denimexudemateroctalstyle",
+    usedForJumble: "      xx     x x     x   ",
+    acrossClues: [
+      { number: 1, text: "Jeans material" },
+      { number: 6, text: "Display, as in confidence" },
+      { number: 7, text: "Erin's alma ___ is Simpson; Brent's is ISU" },
+      { number: 8, text: "Base-8 numbering system" },
+      { number: 9, text: "Pizzazz" },
+    ],
+    downClues: [
+      { number: 1, text: "Shows, as in an aerial move" },
+      { number: 2, text: "To a T" },
+      { number: 3, text: "Because of Erin's salty snack preference, Brent says she's a little bit ___" },
+      { number: 4, text: "Exemplar" },
+      { number: 5, text: "Des Moines road ___ Hay" },
+    ],
+  },
+  {
+    table: "10",
+    id: "2",
+    type: "crossword",
+    answerText:    "sparkaaronniecedrakeyss  ",
+    usedForJumble: " x            xx      x  ",
+    acrossClues: [
+      { number: 1, text: "\"Does it ___ joy?\"" },
+      { number: 6, text: "Erin's name's male counterpart" },
+      { number: 7, text: "Sibling's daughter" },
+      { number: 8, text: "Des Moines university" },
+      { number: 9, text: "Org. Brent volunteered for teaching yoga for a couple of years" },
+    ],
+    downClues: [
+      { number: 1, text: "Beach describer" },
+      { number: 2, text: "Who acro is often performed by" },
+      { number: 3, text: "Length times width and pi times r-squared" },
+      { number: 4, text: "Scissors beater" },
+      { number: 5, text: "Proposal support" },
+    ],
+  },
+  {
+    table: "10",
+    id: "3",
+    type: "jumble",
+    questionText:
+      "When the swimmer showed up to his wedding in an unusual outfit, he responded to his partner, \"But I thought you said",
+    altText: "A groom is at the altar in skimpy swimwear",
+    answerText: "'tux-%speedo!'\"",
+    answerTextLetters: "tuxspeedo"
   },
 ];
 
