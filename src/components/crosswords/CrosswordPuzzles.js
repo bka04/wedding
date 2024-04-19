@@ -333,7 +333,7 @@ const PUZZLES = [
       { number: 9, text: "Decade components" },
     ],
     downClues: [
-      { number: 1, text: "'Giddy up!' (Horse command)" },
+      { number: 1, text: "'___ up!' (Horse command)" },
       { number: 2, text: "Love" },
       { number: 3, text: "Word with social or center" },
       { number: 4, text: "Enthusiastic" },
