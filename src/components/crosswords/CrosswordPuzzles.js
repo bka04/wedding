@@ -530,6 +530,58 @@ const PUZZLES = [
     answerText: "'tux-%speedo!'\"",
     answerTextLetters: "tuxspeedo"
   },
+  {
+    table: "11",
+    id: "1",
+    type: "crossword",
+    answerText:    "tasteoccurdramadormseye  ",
+    usedForJumble: "  x xx                 x ",
+    acrossClues: [
+      { number: 1, text: "There's no accounting for it" },
+      { number: 6, text: "Happen" },
+      { number: 7, text: "Movie genre" },
+      { number: 8, text: "College accommodations" },
+      { number: 9, text: "Lasik target" },
+    ],
+    downClues: [
+      { number: 1, text: "Sweeney ___" },
+      { number: 2, text: "What Erin and Brent practice, perform, and teach together" },
+      { number: 3, text: "Cause a jump, perhaps" },
+      { number: 4, text: "Belly" },
+      { number: 5, text: "Remove" },
+    ],
+  },
+  {
+    table: "11",
+    id: "2",
+    type: "crossword",
+    answerText:    "faredolivenovelghanasalty",
+    usedForJumble: "x        x        x  x   ",
+    acrossClues: [
+      { number: 1, text: "Did" },
+      { number: 6, text: "\"All of\" pun" },
+      { number: 7, text: "New" },
+      { number: 8, text: "African country that shares a border with Togo" },
+      { number: 9, text: "Seawater taste" },
+    ],
+    downClues: [
+      { number: 1, text: "Asian/Italian fusion restaurant in Des Moines" },
+      { number: 2, text: "Hawaiian greeting" },
+      { number: 3, text: "Someone who pushes a competitor to work harder" },
+      { number: 4, text: "Ceremony" },
+      { number: 5, text: "Traveler's nemesis" },
+    ],
+  },
+  {
+    table: "11",
+    id: "3",
+    type: "jumble",
+    questionText:
+      "When the woman proposed in a movie theater with a monetarily punishing no-talking policy, she left with a",
+    altText: "A woman proposes in a movie theater",
+    answerText: "\"fee-%on-%say\"",
+    answerTextLetters: "feeonsay"
+  },
 ];
 
 class JumbleCellData {
