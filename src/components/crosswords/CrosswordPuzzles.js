@@ -582,6 +582,162 @@ const PUZZLES = [
     answerText: "\"fee-%on-%say\"",
     answerTextLetters: "feeonsay"
   },
+  {
+    table: "12",
+    id: "1",
+    type: "crossword",
+    answerText:    "grabsrodeoatollnobledress",
+    usedForJumble: " xx      xxx     xx      ",
+    acrossClues: [
+      { number: 1, text: "Up for ___" },
+      { number: 6, text: "Not one's first ___ (has experience)" },
+      { number: 7, text: "Ring-shaped island encircling a lagoon" },
+      { number: 8, text: "Barnes and ___" },
+      { number: 9, text: "Erin's attire" },
+    ],
+    downClues: [
+      { number: 1, text: "Des Moines east-west street" },
+      { number: 2, text: "Helicopter part" },
+      { number: 3, text: "Photoshop company" },
+      { number: 4, text: "In Celtic tradition, rung at a wedding to ward off evil spirits" },
+      { number: 5, text: "Shoe parts" },
+    ],
+  },
+  {
+    table: "12",
+    id: "2",
+    type: "crossword",
+    answerText:    "campsalarmtokyocheekharry",
+    usedForJumble: "x  x    x x     xx      x",
+    acrossClues: [
+      { number: 1, text: "Summer getaways for kids" },
+      { number: 6, text: "Can be caused by itself?" },
+      { number: 7, text: "Most populous city of Japan" },
+      { number: 8, text: "Polite kiss receiver" },
+      { number: 9, text: "Potter of fiction" },
+    ],
+    downClues: [
+      { number: 1, text: "Brent thinks Erin is a ___" },
+      { number: 2, text: "Hawaiian greeting" },
+      { number: 3, text: "Word following bread or mischief" },
+      { number: 4, text: "Inquisitive person" },
+      { number: 5, text: "Great ___ Mountains National Park" },
+    ],
+  },
+  {
+    table: "12",
+    id: "3",
+    type: "jumble",
+    questionText:
+      "When the groom got his groomsmen together to bake cookies before his wedding, they had quite the",
+    altText: "Three men bake cookies together",
+    answerText: "\"batch-%elor\"%party",
+    answerTextLetters: "batchelorparty"
+  },
+  {
+    table: "13",
+    id: "1",
+    type: "crossword",
+    answerText:    "algaecardstroopivorynames",
+    usedForJumble: " x   x x   x x x      x  ",
+    acrossClues: [
+      { number: 1, text: "Fish food" },
+      { number: 6, text: "Hallmark products" },
+      { number: 7, text: "March on" },
+      { number: 8, text: "Erin's wedding dress color, techincally" },
+      { number: 9, text: "Erin and Brent, for example" },
+    ],
+    downClues: [
+      { number: 1, text: "Perform a play" },
+      { number: 2, text: "Caterpillar stage" },
+      { number: 3, text: "Brent, today" },
+      { number: 4, text: "Love" },
+      { number: 5, text: "Sports awards" },
+    ],
+  },
+  {
+    table: "13",
+    id: "2",
+    type: "crossword",
+    answerText:    "wattsequalbulkybasel  any",
+    usedForJumble: "xx       x x  x   x     x",
+    acrossClues: [
+      { number: 1, text: "Units of power" },
+      { number: 6, text: "=" },
+      { number: 7, text: "Like oversized luggage or a sack of potatoes" },
+      { number: 8, text: "Switzerland's oldest university city" },
+      { number: 9, text: "At ___ rate (whatever happens)" },
+    ],
+    downClues: [
+      { number: 1, text: "Erin or Lorna or Trevor" },
+      { number: 2, text: "Water" },
+      { number: 3, text: "Second-largest city in Oklahoma" },
+      { number: 4, text: "No longer available" },
+      { number: 5, text: "In a cunning manner" },
+    ],
+  },
+  {
+    table: "13",
+    id: "3",
+    type: "jumble",
+    questionText:
+      "When the acrobat tried to propose but ended up over her partner's head, her partner said, \"Yeah, you asked,",
+    altText: "A man holds a woman over his head",
+    answerText: "'will%you%carry%me?'\"",
+    answerTextLetters: "willyoucarryme"
+  },
+  {
+    table: "14",
+    id: "1",
+    type: "crossword",
+    answerText:    "pageserodeagaincultshesse",
+    usedForJumble: "   x          x xx       ",
+    acrossClues: [
+      { number: 1, text: "Book filler" },
+      { number: 6, text: "Wear away" },
+      { number: 7, text: "Knightley and Ruffalo movie Begin ___" },
+      { number: 8, text: "Documentary topic that often piques Erin's and Brent's interest" },
+      { number: 9, text: "Emily or Zach, or 1946 Nobel Prize in Literature winner Hermann" },
+    ],
+    downClues: [
+      { number: 1, text: "Emoji that looks like a butt" },
+      { number: 2, text: "Disagree verbally" },
+      { number: 3, text: "Prefaced with a hashtag, what one aspires to achieve (especially for a soccer player!)" },
+      { number: 4, text: "Revises" },
+      { number: 5, text: "Taste or touch" },
+    ],
+  },
+  {
+    table: "14",
+    id: "2",
+    type: "crossword",
+    answerText:    "hasteownednaomieruptyetis",
+    usedForJumble: "     x            x     x",
+    acrossClues: [
+      { number: 1, text: "Waste maker" },
+      { number: 6, text: "Had" },
+      { number: 7, text: "Tennis star Osaka" },
+      { number: 8, text: "Volcano verb" },
+      { number: 9, text: "Abominable snowmen" },
+    ],
+    downClues: [
+      { number: 1, text: "Mead ingredient" },
+      { number: 2, text: "Self-___ (watch out when AI becomes this)" },
+      { number: 3, text: "Protruding animal part" },
+      { number: 4, text: "Musical speeds, or chess turns in a calculation" },
+      { number: 5, text: "Revisions" },
+    ],
+  },
+  {
+    table: "14",
+    id: "3",
+    type: "jumble",
+    questionText:
+      "When the mathematician guest ignored the bride and groom to work on his theory of infinity, he was dedicated to his",
+    altText: "A man holds a woman over his head",
+    answerText: "\"plus%one\"",
+    answerTextLetters: "plusone"
+  },
 ];
 
 class JumbleCellData {
