@@ -734,9 +734,113 @@ const PUZZLES = [
     type: "jumble",
     questionText:
       "When the mathematician guest ignored the bride and groom to work on his theory of infinity, he was dedicated to his",
-    altText: "A man holds a woman over his head",
-    answerText: "\"plus%one\"",
+    altText: "A man does math at a wedding",
+    answerText: "plus%one",
     answerTextLetters: "plusone"
+  },
+  {
+    table: "15",
+    id: "1",
+    type: "crossword",
+    answerText:    " vowshabitoperaloserdress",
+    usedForJumble: "   x        x       x    ",
+    acrossClues: [
+      { number: 1, text: "Wedding promises" },
+      { number: 5, text: "Routine" },
+      { number: 6, text: "Where to hear an aria" },
+      { number: 7, text: "Winner byproduct" },
+      { number: 8, text: "Erin's attire" },
+    ],
+    downClues: [
+      { number: 1, text: "Water ___, the gaseous phase of water" },
+      { number: 2, text: "Overweight" },
+      { number: 3, text: "These can be tripped or snipped" },
+      { number: 4, text: "What can be rewritten in The Greatest Showman" },
+      { number: 5, text: "To have and to ___" },
+    ],
+  },
+  {
+    table: "15",
+    id: "2",
+    type: "crossword",
+    answerText:    "crushhelloeatenscreeshaky",
+    usedForJumble: "      x           x     x",
+    acrossClues: [
+      { number: 1, text: "Infatuation, or squash" },
+      { number: 6, text: "\"___, my name is Elder Price.\"" },
+      { number: 7, text: "Tacos, after dinner" },
+      { number: 8, text: "Slope covered with small stones" },
+      { number: 9, text: "Erin's and Brent's legs during an acro performance" },
+    ],
+    downClues: [
+      { number: 1, text: "Brent's favorite board game" },
+      { number: 2, text: "Extend" },
+      { number: 3, text: "Extremely" },
+      { number: 4, text: "Smooth and shiny" },
+      { number: 5, text: "Winnie the Pooh's favorite food" },
+    ],
+  },
+  {
+    table: "15",
+    id: "3",
+    type: "jumble",
+    questionText:
+      "The bride said she wasn't crying at her morning wedding - it was",
+    altText: "A bride cries at the altar",
+    answerText: "\"eye-%dew\"",
+    answerTextLetters: "eyedew"
+  },
+  {
+    table: "16",
+    id: "1",
+    type: "crossword",
+    answerText:    "greenleaveuttertrendsorts",
+    usedForJumble: "   x x x             x   ",
+    acrossClues: [
+      { number: 1, text: "Erin's dino onesie color" },
+      { number: 6, text: "___ It to Beaver" },
+      { number: 7, text: "Word before disbelief or dissapointment" },
+      { number: 8, text: "Fashion of today" },
+      { number: 9, text: "Categorizes" },
+    ],
+    downClues: [
+      { number: 1, text: "Excesses" },
+      { number: 2, text: "Fashion of recent past" },
+      { number: 3, text: "Picky ___" },
+      { number: 4, text: "Wedding or a show" },
+      { number: 5, text: "Jocks' counterparts" },
+    ],
+  },
+  {
+    table: "16",
+    id: "2",
+    type: "crossword",
+    answerText:    "wharfeageralivevenueedges",
+    usedForJumble: "x              x         ",
+    acrossClues: [
+      { number: 1, text: "Where a ship may dock" },
+      { number: 6, text: "Enthusiastic" },
+      { number: 7, text: "___ and kicking" },
+      { number: 8, text: "Wedding locale" },
+      { number: 9, text: "Jigsaw starters" },
+    ],
+    downClues: [
+      { number: 1, text: "Make a basket" },
+      { number: 2, text: "High-Altitude Long Endurance Demonstrator acronym" },
+      { number: 3, text: "___ like fine wine" },
+      { number: 4, text: "1920s multi-act theatrical entertainment" },
+      { number: 5, text: "Liberates" },
+    ],
+  },
+  {
+    table: "16",
+    id: "3",
+    type: "jumble",
+    questionText:
+      "When the Wheel of Fortune contestant married the host, she asked him at the altar, \"May I have",
+    altText: "A groom is about to speak at the altar",
+    answerText: "a%'vow-%el'?\"",
+    answerTextLetters: "avowel"
   },
 ];
 
