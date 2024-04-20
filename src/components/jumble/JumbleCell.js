@@ -16,7 +16,7 @@ const JumbleCell = (props) => {
       //{`${cell.className} ${cell.highlight ? 'cellHighlight' : ''}`}
         className={`cellInput ${props.className ? props.className : ''}` 
           + `${props.highlight ? ' cellHighlight' : ''}`
-          + `${props.locked ? ' cellLocked' : ''}`
+          + `${props.locked ? ' jumble-cell-locked ' : ''}`
           + `${props.wrong ? ' cellWrong' : ''}`
         }
         type="text"

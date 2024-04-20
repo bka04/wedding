@@ -850,7 +850,7 @@ class JumbleCellData {
     this.cellValue = "";
     this.type = "";
     this.focus = false;
-    // this.locked = false;
+    this.locked = false;
     // this.wrong = false;
   }
 }

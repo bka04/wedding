@@ -308,7 +308,7 @@ const crosswordMethods = {
 
   handleSolvedGrid: (state) => {
     state.cellData = state.cellData.map((cell) => ({...cell, locked: true}));
-    alert("Well solved, crossworder!");
+    alert("Well solved, puzzler!");
     state.solved = true;
     return state;
   }

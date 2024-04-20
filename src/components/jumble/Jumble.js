@@ -90,6 +90,10 @@ const mapAvailableLetters = (letterArray) => {
   });
 }
 
+const checkJumbleAgainstAnswers = (state, answers) => {
+  const jumbleLetters = state.cellData.filter(cell => cell.type === "letter").map(cell => cell.cellValue); //get letters from screen
+  return jumbleLetters.every((val, index) => val === answers[index]); //every letter correct?
+}
 
 const reducer = (state, action) => {
 
@@ -154,20 +158,25 @@ const reducer = (state, action) => {
 
     const key = action.event.key;
     const keyCode = action.event.keyCode;
+    let solved = false;
     
-    if (keyCode >= 65 && keyCode <= 90) { //letter
+    if (keyCode >= 65 && keyCode <= 90 && !newState.cellData[index].locked) { //letter and not locked
       newState.cellData[index].cellValue = key;
       index = getNextLetterCellIndex(newState, index);
+      solved = checkJumbleAgainstAnswers(newState, action.answerTextLetters) //has grid been solved?
+      if (solved) { //if so, lock all letters in grid and alert user of great success
+        newState = crosswordMethods.handleSolvedGrid(newState);
+      }
     } 
     
-    else if (keyCode === 8 || keyCode === 46) { //backspace/delete
+    else if ((keyCode === 8 || keyCode === 46) && !newState.cellData[index].locked) { //backspace/delete and not locked
       if (newState.cellData[index].cellValue === "") { // if already blank, get prev cell
         index = getPrevLetterCellIndex(state, index, true);
       }
       newState.cellData[index].cellValue = "";
     } //end backspace/delete
 
-    else if (keyCode === 32) { //space button
+    else if (keyCode === 32 && !newState.cellData[index].locked) { //space button and not locked
       newState.cellData[index].cellValue = ""; // clear out cell currently on
       index = getNextLetterCellIndex(state, index, true); // go to next cell
     }
@@ -203,7 +212,7 @@ const reducer = (state, action) => {
 
 
 const Jumble = (props) => {
-  const { puzzleID, tableID, initialCellData, questionText, altText, answerText, availableLetters } =
+  const { puzzleID, tableID, initialCellData, questionText, altText, answerTextLetters, availableLetters } =
     props;
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -218,7 +227,7 @@ const Jumble = (props) => {
 
 
   const onKeyDownHandler = (event) => {
-    dispatch({ type: "keydown", event, answerText, puzzleID, tableID });
+    dispatch({ type: "keydown", event, answerTextLetters, puzzleID, tableID });
   };
 
   const onMouseDownHandler = (event) => {
@@ -249,6 +258,7 @@ const Jumble = (props) => {
               return <JumbleCell
                 key={i}
                 focus={state.cellData[i].focus}
+                locked={state.cellData[i].locked}
                 cellValue={state.cellData[i].cellValue}
                 data-cellnum={state.cellData[i].index}
                 onKeyDown={onKeyDownHandler}

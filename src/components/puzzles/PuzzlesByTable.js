@@ -25,6 +25,7 @@ const PuzzlesByTable = (props) => {
         questionText={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).questionText}
         altText={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).altText}
         answerText={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).answerText}
+        answerTextLetters={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).answerTextLetters.split("")}
         // will need to update this to pass in what the user has found. Use ? or _ if not found everything
         availableLetters={puzzlesByTable.find(puzzle => puzzle.id === currentPuzzle).answerTextLetters.split("")}
       /> : null}
